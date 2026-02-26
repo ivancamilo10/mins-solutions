@@ -1,0 +1,1042 @@
+<!doctype html>
+<html lang="es" class="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio Completo | Mins Solutions TI</title>
+  <meta name="description" content="Portafolio completo de Mins Solutions TI: soluciones de software a la medida en Colombia. E-commerce, POS, LMS, CRM, Apps Móvil y más." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="Portafolio | Mins Solutions TI" />
+  <meta property="og:description" content="Soluciones web y sistemas a la medida: e-commerce, POS, cursos y gestión de empleados. Colombia." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#00ABE4",
+            "primary-dark": "#008dc0",
+            secondary: "#E9F1FA",
+            accent: "#00D1B2",
+            "text-main": "#111439",
+            "text-light": "#5e818d",
+            "background-light": "#FFFFFF",
+            "background-alt": "#E9F1FA",
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+            body: ["Noto Sans", "sans-serif"],
+          },
+          boxShadow: {
+            soft: "0 4px 20px -2px rgba(17, 20, 57, 0.06)",
+            card: "0 2px 12px rgba(0, 0, 0, 0.05)",
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script type="application/ld+json" id="ld-json-business"></script>
+
+  <style>
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Noto Sans", sans-serif;
+      background: #f4f8fb;
+      color: #111439;
+      min-height: 100vh;
+    }
+    .dark body { background: #0d1117; color: #e6edf3; }
+
+    /* ── Navbar ── */
+    .navbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,171,228,0.12);
+      transition: background .3s;
+    }
+    .dark .navbar {
+      background: rgba(13,17,23,0.92);
+      border-bottom-color: rgba(0,171,228,0.18);
+    }
+
+    /* ── Hero banner ── */
+    .hero-banner {
+      background: linear-gradient(135deg, #00ABE4 0%, #008dc0 50%, #00D1B2 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero-banner::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* ── Filter buttons ── */
+    .filter-btn {
+      padding: .45rem 1.1rem;
+      border-radius: 9999px;
+      font-size: .825rem;
+      font-weight: 500;
+      border: 1.5px solid #d1e9f5;
+      background: white;
+      color: #5e818d;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+    .dark .filter-btn {
+      background: #161b22; color: #8b949e; border-color: #30363d;
+    }
+    .filter-btn:hover { border-color: #00ABE4; color: #00ABE4; }
+    .filter-btn.is-active {
+      background: #00ABE4; border-color: #00ABE4;
+      color: white; box-shadow: 0 4px 12px rgba(0,171,228,.35);
+    }
+
+    /* ── Project card ── */
+    .proj-card {
+      background: white;
+      border-radius: 1.1rem;
+      border: 1.5px solid #e8f3fa;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      cursor: pointer;
+    }
+    .dark .proj-card {
+      background: #161b22; border-color: #21262d;
+    }
+    .proj-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,171,228,.18);
+      border-color: #00ABE4;
+    }
+    .proj-card.hidden { display: none; }
+
+    .proj-thumb {
+      height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.2rem;
+      position: relative; overflow: hidden;
+    }
+    .proj-thumb .material-symbols-outlined {
+      font-size: 3.5rem;
+      position: relative; z-index: 1;
+      color: white;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,.18));
+    }
+    .proj-thumb::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: inherit;
+      opacity: .15;
+    }
+
+    /* Gradientes por categoría */
+    .thumb-ecommerce { background: linear-gradient(135deg,#00ABE4,#00D1B2); }
+    .thumb-pos       { background: linear-gradient(135deg,#f97316,#ef4444); }
+    .thumb-courses   { background: linear-gradient(135deg,#8b5cf6,#6366f1); }
+    .thumb-hr        { background: linear-gradient(135deg,#10b981,#059669); }
+    .thumb-crm       { background: linear-gradient(135deg,#f59e0b,#f97316); }
+    .thumb-apps      { background: linear-gradient(135deg,#3b82f6,#8b5cf6); }
+    .thumb-web       { background: linear-gradient(135deg,#00ABE4,#3b82f6); }
+    .thumb-factura   { background: linear-gradient(135deg,#10b981,#00ABE4); }
+
+    /* Tag de categoría */
+    .proj-tag {
+      display: inline-block;
+      font-size: .7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+      padding: .18rem .65rem;
+      border-radius: 9999px;
+      margin-bottom: .5rem;
+    }
+
+    .tag-ecommerce { background:#e0f5fb; color:#00ABE4; }
+    .tag-pos       { background:#fef3e9; color:#f97316; }
+    .tag-courses   { background:#ede9fe; color:#7c3aed; }
+    .tag-hr        { background:#d1fae5; color:#059669; }
+    .tag-crm       { background:#fef9c3; color:#b45309; }
+    .tag-apps      { background:#dbeafe; color:#2563eb; }
+    .tag-web       { background:#e0f2fe; color:#0284c7; }
+    .tag-factura   { background:#d1fae5; color:#065f46; }
+    .dark .tag-ecommerce { background:#003d52; color:#38bdf8; }
+    .dark .tag-pos       { background:#431407; color:#fb923c; }
+    .dark .tag-courses   { background:#2e1065; color:#a78bfa; }
+    .dark .tag-hr        { background:#064e3b; color:#34d399; }
+    .dark .tag-crm       { background:#451a03; color:#fbbf24; }
+    .dark .tag-apps      { background:#1e3a5f; color:#60a5fa; }
+    .dark .tag-web       { background:#0c2a3e; color:#38bdf8; }
+    .dark .tag-factura   { background:#064e3b; color:#6ee7b7; }
+
+    /* Badge de nivel */
+    .badge {
+      font-size: .65rem; font-weight: 600;
+      padding: .15rem .6rem;
+      border-radius: 9999px;
+      border: 1.5px solid;
+    }
+    .badge-basico   { border-color:#94a3b8; color:#64748b; }
+    .badge-avanzado { border-color:#00ABE4; color:#00ABE4; }
+    .badge-premium  { border-color:#f59e0b; color:#b45309; background:#fffbeb; }
+    .dark .badge-premium { background:#451a03; color:#fbbf24; }
+
+    /* Features list */
+    .feature-item {
+      display: flex; align-items: flex-start; gap: .4rem;
+      font-size: .82rem; color: #5e818d; margin-bottom: .3rem;
+    }
+    .dark .feature-item { color: #8b949e; }
+    .feature-item .material-symbols-outlined {
+      font-size: 1rem; color: #00D1B2; flex-shrink: 0; margin-top: .05rem;
+    }
+
+    /* Price chip */
+    .price-chip {
+      background: linear-gradient(90deg,#00ABE4,#00D1B2);
+      color: white; border-radius: .6rem;
+      padding: .5rem .9rem; text-align: center;
+    }
+
+    /* ── Modal overlay ── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 100;
+      background: rgba(0,0,0,.6);
+      backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: white; border-radius: 1.4rem;
+      width: 100%; max-width: 720px; max-height: 90vh;
+      overflow-y: auto;
+      transform: scale(.94) translateY(20px);
+      transition: transform .3s;
+    }
+    .dark .modal-box { background: #161b22; }
+    .modal-overlay.open .modal-box { transform: scale(1) translateY(0); }
+
+    /* ── Stats bar ── */
+    .stat-card {
+      background: white; border-radius: .9rem;
+      border: 1.5px solid #e8f3fa;
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      transition: transform .2s;
+    }
+    .dark .stat-card { background: #161b22; border-color: #21262d; }
+    .stat-card:hover { transform: translateY(-3px); }
+
+    /* ── Search ── */
+    .search-input {
+      width: 100%; padding: .65rem 1rem .65rem 2.8rem;
+      border: 1.5px solid #d1e9f5;
+      border-radius: 9999px;
+      background: white; color: #111439;
+      font-size: .9rem;
+      outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .dark .search-input {
+      background: #161b22; color: #e6edf3; border-color: #30363d;
+    }
+    .search-input:focus { border-color: #00ABE4; box-shadow: 0 0 0 3px rgba(0,171,228,.15); }
+
+    /* ── Toggle dark mode ── */
+    .theme-btn {
+      width: 2.2rem; height: 2.2rem;
+      border-radius: 9999px;
+      border: 1.5px solid #d1e9f5;
+      background: white; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .dark .theme-btn { background: #161b22; border-color: #30363d; }
+    .theme-btn:hover { border-color: #00ABE4; }
+    .theme-btn .material-symbols-outlined { font-size: 1.15rem; color: #5e818d; }
+
+    /* ── View toggle ── */
+    .view-btn {
+      padding: .4rem .6rem; border-radius: .4rem;
+      border: 1.5px solid #d1e9f5;
+      background: white; cursor: pointer;
+      display: flex; align-items: center;
+      transition: all .2s;
+    }
+    .dark .view-btn { background: #161b22; border-color: #30363d; }
+    .view-btn.is-active { background: #00ABE4; border-color: #00ABE4; }
+    .view-btn.is-active .material-symbols-outlined { color: white; }
+    .view-btn .material-symbols-outlined { font-size: 1.1rem; color: #5e818d; }
+
+    /* ── List view ── */
+    .list-view .proj-card {
+      flex-direction: row; height: 110px;
+    }
+    .list-view .proj-card .proj-thumb { width: 110px; height: 110px; flex-shrink: 0; }
+    .list-view .proj-card .proj-features,
+    .list-view .proj-card .proj-price-row { display: none; }
+
+    /* ── Animations ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .proj-card { animation: fadeInUp .4s ease both; }
+
+    /* ── Scroll to top ── */
+    #scrollTop {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 60;
+      width: 2.8rem; height: 2.8rem;
+      background: #00ABE4; color: white;
+      border-radius: 9999px; border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      box-shadow: 0 4px 16px rgba(0,171,228,.4);
+    }
+    #scrollTop.visible { opacity: 1; pointer-events: all; }
+    #scrollTop:hover { transform: translateY(-3px); }
+
+    /* Empty state */
+    #emptyState { display: none; }
+  </style>
+</head>
+
+<body class="font-body">
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+      <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+        <span class="material-symbols-outlined text-white" style="font-size:1.1rem">code</span>
+      </div>
+      <span class="font-display font-700 text-text-main dark:text-white text-base leading-tight">
+        Mins Solutions <span class="text-primary">TI</span>
+      </span>
+    </a>
+
+
+    <!-- Acciones -->
+    <div class="flex items-center gap-2">
+     
+      <a href="index.html#contacto" class="hidden sm:flex items-center gap-1 btn-primary text-sm h-9 px-4 rounded-full bg-primary text-white font-600 no-underline transition hover:bg-primary-dark"
+         style="background:#00ABE4;color:white;padding:.45rem 1.1rem;border-radius:9999px;font-weight:600;font-size:.875rem;text-decoration:none;transition:background .2s;">
+        Solicitar proyecto
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO BANNER
+══════════════════════════════════════ -->
+<section class="hero-banner py-16 text-white text-center relative">
+  <div class="max-w-[900px] mx-auto px-4 relative z-10">
+    <div class="inline-flex items-center gap-2 bg-white/15 rounded-full px-4 py-1.5 text-sm font-500 mb-5">
+      <span class="material-symbols-outlined" style="font-size:1rem">rocket_launch</span>
+      Portafolio Completo 2025–2026
+    </div>
+    <h1 class="font-display text-4xl sm:text-5xl font-800 mb-4 leading-tight">
+      Soluciones de Software<br>
+      <span class="text-accent">a la medida</span>
+    </h1>
+    <p class="text-white/80 text-lg max-w-xl mx-auto mb-8">
+      Más de 25 productos desarrollados para impulsar negocios reales en Colombia y Latinoamérica.
+    </p>
+    <!-- Stats inline -->
+    <div class="flex flex-wrap justify-center gap-6 text-center">
+      <div><p class="text-3xl font-800">25+</p><p class="text-white/70 text-sm">Soluciones</p></div>
+      <div class="w-px bg-white/20 self-stretch"></div>
+      <div><p class="text-3xl font-800">7</p><p class="text-white/70 text-sm">Categorías</p></div>
+      <div class="w-px bg-white/20 self-stretch"></div>
+      <div><p class="text-3xl font-800">100%</p><p class="text-white/70 text-sm">Escalables</p></div>
+      <div class="w-px bg-white/20 self-stretch"></div>
+      <div><p class="text-3xl font-800">30d</p><p class="text-white/70 text-sm">Garantía post-lanzamiento</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     MAIN
+══════════════════════════════════════ -->
+<main class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+  <!-- Barra de controles -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+    <!-- Search mobile -->
+    <div class="relative sm:hidden">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-light" style="font-size:1.1rem">search</span>
+      <input id="searchInputMobile" type="search" placeholder="Buscar solución..." class="search-input" />
+    </div>
+
+    <!-- Resultado count -->
+    <p class="text-sm text-text-light dark:text-white/50" id="resultCount">Mostrando <strong id="visibleCount">0</strong> soluciones</p>
+
+    <!-- View toggles -->
+    <div class="flex items-center gap-2">
+      <span class="text-xs text-text-light dark:text-white/40 mr-1">Vista:</span>
+      <button class="view-btn is-active" id="viewGrid" title="Cuadrícula">
+        <span class="material-symbols-outlined">grid_view</span>
+      </button>
+      <button class="view-btn" id="viewList" title="Lista">
+        <span class="material-symbols-outlined">view_list</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Filtros -->
+  <div class="flex flex-wrap gap-2 mb-8" id="portfolioFilters">
+    <button class="filter-btn is-active" data-filter="all"       type="button">
+      <span class="material-symbols-outlined align-middle mr-1" style="font-size:.9rem">apps</span>Todos
+    </button>
+    <button class="filter-btn" data-filter="ecommerce" type="button">
+      <span class="material-symbols-outlined align-middle mr-1" style="font-size:.9rem">storefront</span>E-commerce
+    </button>
+    <button class="filter-btn" data-filter="pos" type="button">
+      <span class="material-symbols-outlined align-middle mr-1" style="font-size:.9rem">point_of_sale</span>POS
+    </button>
+    <button class="filter-btn" data-filter="courses" type="button">
+      <span class="material-symbols-outlined align-middle mr-1" style="font-size:.9rem">school</span>LMS / Cursos
+    </button>
+    <button class="filter-btn" data-filter="hr" type="button">
+      <span class="material-symbols-outlined align-middle mr-1" style="font-size:.9rem">badge</span>Empleados
+    </button>
+    <button class="filter-btn" data-filter="crm" type="button">
+      <span class="material-symbols-outlined align-middle mr-1" style="font-size:.9rem">contacts</span>CRM
+    </button>
+    <button class="filter-btn" data-filter="apps" type="button">
+      <span class="material-symbols-outlined align-middle mr-1" style="font-size:.9rem">smartphone</span>Apps Móvil
+    </button>
+    <button class="filter-btn" data-filter="web" type="button">
+      <span class="material-symbols-outlined align-middle mr-1" style="font-size:.9rem">public</span>Web & Análisis
+    </button>
+  </div>
+
+  <!-- Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
+    <!-- Cards generadas por JS -->
+  </div>
+
+  <!-- Empty state -->
+  <div id="emptyState" class="text-center py-20">
+    <span class="material-symbols-outlined text-6xl text-text-light/40">search_off</span>
+    <p class="text-text-light dark:text-white/40 mt-3 text-lg">No se encontraron soluciones</p>
+    <button onclick="resetFilters()" class="mt-4 text-primary underline text-sm">Limpiar filtros</button>
+  </div>
+
+  <!-- CTA Bottom -->
+  <div class="mt-16 rounded-2xl overflow-hidden" style="background:linear-gradient(135deg,#00ABE4 0%,#008dc0 60%,#00D1B2 100%)">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 px-8 py-10 text-white">
+      <div>
+        <h2 class="font-display text-2xl font-800 mb-2">¿No encuentras lo que necesitas?</h2>
+        <p class="text-white/80">Desarrollamos cualquier solución a tu medida. Contáctanos y cotiza sin compromiso.</p>
+      </div>
+      <a href="index.html#contacto"
+         style="background:white;color:#00ABE4;padding:.75rem 2rem;border-radius:9999px;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:transform .2s,box-shadow .2s;"
+         onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.2)'"
+         onmouseout="this.style.transform='';this.style.boxShadow=''">
+        Solicitar solución personalizada
+      </a>
+    </div>
+  </div>
+</main>
+
+<!-- ══════════════════════════════════════
+     MODAL DETALLE
+══════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box" id="modalBox">
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- Scroll to top -->
+<button id="scrollTop" title="Volver arriba">
+  <span class="material-symbols-outlined" style="font-size:1.2rem">arrow_upward</span>
+</button>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+// ─── Data ───────────────────────────────────────────────────────────────
+const projects = [
+  {
+    id: 1, category: "ecommerce", level: "basico",
+    icon: "shopping_cart", thumb: "thumb-ecommerce",
+    tag: "E-commerce", tagClass: "tag-ecommerce",
+    title: "E-commerce Básico",
+    short: "Tienda en línea con catálogo, carrito y pasarela de pago.",
+    description: "Solución ideal para emprendedores y PYMEs que quieren vender en línea rápidamente. Incluye catálogo de productos, carrito de compras intuitivo, integración con pasarela de pago y panel de administración.",
+    features: ["Catálogo de productos ilimitados","Carrito y checkout optimizado","Integración con pasarela de pago","Panel de administración","Responsive design","3 meses de soporte gratuito"],
+    tech: ["React","Node.js","MySQL","Stripe"],
+    price_cop: "1.500.000",
+    price_usd: "375",
+    special: "Incluye 3 meses de soporte técnico gratuito",
+    duration: "3–4 semanas"
+  },
+  {
+    id: 2, category: "ecommerce", level: "avanzado",
+    icon: "storefront", thumb: "thumb-ecommerce",
+    tag: "E-commerce", tagClass: "tag-ecommerce",
+    title: "E-commerce Estándar",
+    short: "Tienda avanzada con análisis, inventario y múltiples pagos.",
+    description: "Plataforma de ventas completa con análisis de ventas en tiempo real, gestión de inventario automatizada, múltiples métodos de pago, cupones de descuento e integración con redes sociales.",
+    features: ["Análisis de ventas en tiempo real","Gestión de inventario avanzada","Múltiples formas de pago","Cupones y descuentos","Integración con redes sociales","SEO integrado"],
+    tech: ["React","Django","PostgreSQL","PayU"],
+    price_cop: "3.200.000",
+    price_usd: "800",
+    special: "Integración con redes sociales + cupones de descuento",
+    duration: "5–6 semanas"
+  },
+  {
+    id: 3, category: "ecommerce", level: "premium",
+    icon: "auto_awesome", thumb: "thumb-ecommerce",
+    tag: "E-commerce", tagClass: "tag-ecommerce",
+    title: "E-commerce Premium con IA",
+    short: "Plataforma completa con IA, marketing automatizado y análisis avanzado.",
+    description: "La solución más completa para negocios que quieren escalar. Motor de recomendaciones por IA, marketing automatizado, análisis predictivo de ventas, A/B testing y consultoría estratégica incluida.",
+    features: ["IA para recomendaciones personalizadas","Marketing automatizado","Análisis avanzado y predictivo","A/B testing integrado","Consultoría de 1 mes incluida","Actualizaciones de por vida"],
+    tech: ["React","Python/AI","FastAPI","Azure"],
+    price_cop: "5.500.000",
+    price_usd: "1.375",
+    special: "Consultoría de 1 mes + actualizaciones de por vida",
+    duration: "8–10 semanas"
+  },
+  {
+    id: 4, category: "pos", level: "basico",
+    icon: "receipt", thumb: "thumb-pos",
+    tag: "POS", tagClass: "tag-pos",
+    title: "Sistema POS Básico",
+    short: "Punto de venta simple para retail con registro y reportes diarios.",
+    description: "Sistema POS ligero y rápido para tiendas retail, papelerías y comercios pequeños. Registro de ventas, control de caja y reportes diarios simples con soporte técnico ilimitado por 6 meses.",
+    features: ["Registro de ventas rápido","Control de caja diaria","Reportes diarios en PDF","Gestión de productos básica","Multi-usuario","Soporte ilimitado 6 meses"],
+    tech: ["PHP","MySQL","Bootstrap"],
+    price_cop: "1.200.000",
+    price_usd: "300",
+    special: "Soporte técnico ilimitado durante 6 meses",
+    duration: "2–3 semanas"
+  },
+  {
+    id: 5, category: "pos", level: "avanzado",
+    icon: "point_of_sale", thumb: "thumb-pos",
+    tag: "POS", tagClass: "tag-pos",
+    title: "Sistema POS Avanzado",
+    short: "POS con inventario, múltiples cajas y reportes financieros.",
+    description: "Solución robusta para restaurantes, supermercados y cadenas. Gestión de inventario en tiempo real, múltiples cajas, reportes financieros detallados, capacitación del equipo incluida y reportes personalizados.",
+    features: ["Inventario en tiempo real","Múltiples cajas y sucursales","Reportes financieros avanzados","Alertas de stock bajo","Capacitación del equipo incluida","Reportes personalizados"],
+    tech: ["React","Node.js","MySQL"],
+    price_cop: "2.800.000",
+    price_usd: "700",
+    special: "Capacitación del equipo + reportes personalizados",
+    duration: "4–5 semanas"
+  },
+  {
+    id: 6, category: "pos", level: "premium",
+    icon: "restaurant", thumb: "thumb-pos",
+    tag: "POS", tagClass: "tag-pos",
+    title: "Sistema POS Premium con IA",
+    short: "POS inteligente con predicción de demanda y análisis de tendencias.",
+    description: "El POS más avanzado del mercado colombiano. Usa inteligencia artificial para predecir demanda, analizar tendencias de consumo, optimizar inventario automáticamente y sincronizarse con tu tienda en línea.",
+    features: ["IA para predicción de demanda","Análisis de tendencias de consumo","Optimización automática de inventario","Sincronización con tienda en línea","Integración CRM nativa","Dashboard ejecutivo en tiempo real"],
+    tech: ["React","Python/AI","PostgreSQL","Azure"],
+    price_cop: "4.800.000",
+    price_usd: "1.200",
+    special: "Sincronización con tienda en línea incluida",
+    duration: "6–8 semanas"
+  },
+  {
+    id: 7, category: "courses", level: "basico",
+    icon: "menu_book", thumb: "thumb-courses",
+    tag: "LMS / Cursos", tagClass: "tag-courses",
+    title: "Plataforma Educativa Básica",
+    short: "LMS con cursos, calificaciones y reportes de estudiantes.",
+    description: "Plataforma de aprendizaje en línea para academias, coaches y educadores. Crea y gestiona cursos, evalúa estudiantes, genera reportes de progreso y emite certificados automáticos personalizados.",
+    features: ["Creación y gestión de cursos","Evaluaciones y quizzes","Reportes de progreso","Certificados automáticos","Gestión de estudiantes","Pagos integrados"],
+    tech: ["Angular","Django","PostgreSQL"],
+    price_cop: "2.000.000",
+    price_usd: "500",
+    special: "Certificados automáticos personalizados",
+    duration: "4–5 semanas"
+  },
+  {
+    id: 8, category: "courses", level: "avanzado",
+    icon: "school", thumb: "thumb-courses",
+    tag: "LMS / Cursos", tagClass: "tag-courses",
+    title: "Plataforma Educativa Pro",
+    short: "LMS avanzada con videoconferencias, foros y gamificación.",
+    description: "LMS profesional con todas las funcionalidades para academias en crecimiento. Videoconferencias integradas, foros de discusión, gamificación con puntos y logros, análisis de progreso avanzado e integración con Zoom.",
+    features: ["Videoconferencias integradas","Foros y comunidad","Gamificación (puntos, logros, rankings)","Análisis de progreso avanzado","Integración con Zoom","Soporte a instructores incluido"],
+    tech: ["React","Node.js","MongoDB","Zoom API"],
+    price_cop: "4.200.000",
+    price_usd: "1.050",
+    special: "Integración con Zoom + soporte a instructores",
+    duration: "6–8 semanas"
+  },
+  {
+    id: 9, category: "courses", level: "premium",
+    icon: "corporate_fare", thumb: "thumb-courses",
+    tag: "LMS / Cursos", tagClass: "tag-courses",
+    title: "LMS Enterprise con ROI",
+    short: "LMS corporativo con SSO, APIs y análisis de impacto ROI.",
+    description: "Solución enterprise para corporaciones y universidades. SSO empresarial, integraciones API ilimitadas, análisis de impacto ROI por formación, consultoría pedagógica incluida y reportes ejecutivos customizados.",
+    features: ["SSO empresarial (LDAP/SAML)","Integraciones API ilimitadas","Análisis de impacto ROI","Consultoría pedagógica incluida","Reportes ejecutivos custom","Escalabilidad sin límites"],
+    tech: ["React","Django","PostgreSQL","Azure SSO"],
+    price_cop: "7.500.000",
+    price_usd: "1.875",
+    special: "Consultoría pedagógica + análisis de datos customizado",
+    duration: "10–14 semanas"
+  },
+  {
+    id: 10, category: "hr", level: "basico",
+    icon: "manage_accounts", thumb: "thumb-hr",
+    tag: "Empleados", tagClass: "tag-hr",
+    title: "Sistema de Gestión de Turnos",
+    short: "Asignación y control de turnos con notificaciones en tiempo real.",
+    description: "Optimiza la gestión del personal con asignación inteligente de turnos, notificaciones automáticas a empleados, control de asistencia y reportes de horas trabajadas. Ideal para restaurantes, clínicas y empresas con turnos rotativos.",
+    features: ["Asignación inteligente de turnos","Notificaciones en tiempo real","Control de asistencia","Reportes de horas trabajadas","App móvil para empleados","Historial de cambios de turno"],
+    tech: ["React","Node.js","MySQL","Firebase"],
+    price_cop: "1.800.000",
+    price_usd: "450",
+    special: "Notificaciones en tiempo real a empleados",
+    duration: "3–4 semanas"
+  },
+  {
+    id: 11, category: "crm", level: "basico",
+    icon: "person_search", thumb: "thumb-crm",
+    tag: "CRM", tagClass: "tag-crm",
+    title: "CRM Básico",
+    short: "Gestión de contactos, leads y seguimiento de ventas simple.",
+    description: "Centraliza todos tus contactos y oportunidades de negocio en un solo lugar. Pipeline de ventas visual, seguimiento de interacciones, recordatorios automáticos e importación desde Excel.",
+    features: ["Pipeline de ventas visual","Gestión de contactos y leads","Seguimiento de interacciones","Recordatorios automáticos","Importación desde Excel gratis","Reportes básicos de ventas"],
+    tech: ["Vue.js","PHP","MySQL"],
+    price_cop: "2.200.000",
+    price_usd: "550",
+    special: "Importación de contactos desde Excel gratis",
+    duration: "3–4 semanas"
+  },
+  {
+    id: 12, category: "crm", level: "avanzado",
+    icon: "contacts", thumb: "thumb-crm",
+    tag: "CRM", tagClass: "tag-crm",
+    title: "CRM Avanzado + WhatsApp",
+    short: "CRM con automatización de emails, predicción de ventas e integración WhatsApp.",
+    description: "CRM de alto rendimiento con automatización completa del ciclo de ventas. Secuencias de emails automáticas, predicción de ventas con IA, análisis de comportamiento del cliente e integración nativa con WhatsApp Business.",
+    features: ["Automatización de emails y seguimientos","Predicción de ventas con IA","Análisis de comportamiento del cliente","Integración WhatsApp Business","Segmentación avanzada","Dashboard de KPIs en tiempo real"],
+    tech: ["React","Python","PostgreSQL","WhatsApp API"],
+    price_cop: "4.500.000",
+    price_usd: "1.125",
+    special: "Integración con WhatsApp Business incluida",
+    duration: "6–8 semanas"
+  },
+  {
+    id: 13, category: "apps", level: "avanzado",
+    icon: "phone_iphone", thumb: "thumb-apps",
+    tag: "Apps Móvil", tagClass: "tag-apps",
+    title: "App iOS Nativa",
+    short: "Aplicación nativa para iPhone con interfaces modernas.",
+    description: "Desarrollamos aplicaciones iOS nativas con las mejores prácticas de Apple. Diseño adaptado a las guías de Apple HIG, rendimiento óptimo, notificaciones push y publicación asistida en App Store.",
+    features: ["Desarrollo nativo Swift/SwiftUI","Diseño Apple HIG compliant","Notificaciones push","In-app purchases","Publicación en App Store asistida","Soporte post-lanzamiento"],
+    tech: ["Swift","SwiftUI","Xcode","CloudKit"],
+    price_cop: "4.200.000",
+    price_usd: "1.050",
+    special: "Publicación en App Store asistida",
+    duration: "8–10 semanas"
+  },
+  {
+    id: 14, category: "apps", level: "avanzado",
+    icon: "android", thumb: "thumb-apps",
+    tag: "Apps Móvil", tagClass: "tag-apps",
+    title: "App Android Nativa",
+    short: "Aplicación nativa para Android optimizada y publicada en Play Store.",
+    description: "Apps Android nativas con Material Design 3, rendimiento optimizado para múltiples dispositivos, integración con servicios de Google y publicación asistida en Google Play Store.",
+    features: ["Desarrollo nativo Kotlin","Material Design 3","Soporte multi-dispositivo","Integración servicios Google","Publicación en Google Play asistida","Optimización de batería"],
+    tech: ["Kotlin","Jetpack Compose","Firebase","Android Studio"],
+    price_cop: "3.800.000",
+    price_usd: "950",
+    special: "Publicación en Google Play Store asistida",
+    duration: "7–9 semanas"
+  },
+  {
+    id: 15, category: "apps", level: "premium",
+    icon: "devices", thumb: "thumb-apps",
+    tag: "Apps Móvil", tagClass: "tag-apps",
+    title: "App Multiplataforma React Native",
+    short: "App iOS + Android con React Native y sincronización en tiempo real.",
+    description: "Una sola base de código para iOS y Android. Sincronización en tiempo real con el backend, performance cercano a nativo, actualizaciones OTA y publicación asistida en ambas tiendas.",
+    features: ["iOS y Android desde una base de código","Sincronización en tiempo real","Performance casi nativo","Actualizaciones OTA sin pasar por stores","Publicación en ambas tiendas asistida","Integración con APIs REST/GraphQL"],
+    tech: ["React Native","TypeScript","Node.js","Firebase"],
+    price_cop: "6.500.000",
+    price_usd: "1.625",
+    special: "Sincronización en tiempo real con backend",
+    duration: "10–12 semanas"
+  },
+  {
+    id: 16, category: "web", level: "avanzado",
+    icon: "bar_chart", thumb: "thumb-web",
+    tag: "Web & Análisis", tagClass: "tag-web",
+    title: "Dashboard de KPIs",
+    short: "Panel de control con gráficos interactivos y datos cada 5 minutos.",
+    description: "Dashboard ejecutivo con visualizaciones interactivas de métricas clave de tu negocio. Actualización de datos cada 5 minutos, exportación de reportes en PDF/Excel y acceso multi-rol.",
+    features: ["KPIs en tiempo real (actualización cada 5 min)","Gráficos interactivos drag-and-drop","Exportación PDF y Excel","Alertas automáticas por umbral","Multi-rol y multi-empresa","Integración con fuentes de datos externas"],
+    tech: ["React","Chart.js","Python","PostgreSQL"],
+    price_cop: "1.900.000",
+    price_usd: "475",
+    special: "Actualización de datos cada 5 minutos",
+    duration: "3–4 semanas"
+  },
+  {
+    id: 17, category: "web", level: "avanzado",
+    icon: "receipt_long", thumb: "thumb-factura",
+    tag: "Web & Análisis", tagClass: "tag-web",
+    title: "Facturación Electrónica DIAN",
+    short: "Facturas electrónicas con cumplimiento normativo DIAN garantizado al 100%.",
+    description: "Genera, gestiona y envía facturas electrónicas cumpliendo todas las normativas de la DIAN colombiana. Firma digital, numeración automática, envío al adquiriente y reportes de cartera.",
+    features: ["Cumplimiento DIAN 100% garantizado","Firma digital certificada","Numeración automática resolución DIAN","Envío automático al adquiriente","Reportes de cartera y vencimientos","Integración con sistemas contables"],
+    tech: ["PHP","MySQL","API DIAN","Node.js"],
+    price_cop: "2.200.000",
+    price_usd: "550",
+    special: "Cumplimiento normativo 100% garantizado",
+    duration: "3–5 semanas"
+  },
+  {
+    id: 18, category: "web", level: "basico",
+    icon: "calendar_month", thumb: "thumb-web",
+    tag: "Web & Análisis", tagClass: "tag-web",
+    title: "Sistema de Reservas",
+    short: "Agendamiento de citas con recordatorios automáticos SMS y email.",
+    description: "Plataforma de agendamiento para clínicas, spas, talleres y servicios profesionales. Calendario visual, recordatorios automáticos por SMS y email, gestión de disponibilidad y pagos anticipados.",
+    features: ["Calendario visual interactivo","Recordatorios automáticos SMS y email","Gestión de disponibilidad","Pagos anticipados opcionales","Panel de cliente (self-service)","Reportes de ocupación"],
+    tech: ["Vue.js","Laravel","MySQL","Twilio"],
+    price_cop: "1.400.000",
+    price_usd: "350",
+    special: "Recordatorios automáticos por SMS y email",
+    duration: "3–4 semanas"
+  },
+  {
+    id: 19, category: "web", level: "basico",
+    icon: "chat", thumb: "thumb-web",
+    tag: "Web & Análisis", tagClass: "tag-web",
+    title: "Chat en Tiempo Real",
+    short: "Chat privado con cifrado extremo a extremo y usuarios ilimitados.",
+    description: "Sistema de mensajería interna para empresas con cifrado de extremo a extremo, salas de chat, mensajes directos, notificaciones y usuarios ilimitados sin costo adicional.",
+    features: ["Cifrado de extremo a extremo","Salas grupales y mensajes directos","Notificaciones push en tiempo real","Usuarios ilimitados sin costo extra","Historial de mensajes","Integración con sistemas internos"],
+    tech: ["React","Socket.io","Node.js","MongoDB"],
+    price_cop: "1.600.000",
+    price_usd: "400",
+    special: "Usuarios ilimitados sin costo adicional",
+    duration: "3–4 semanas"
+  },
+  {
+    id: 20, category: "web", level: "basico",
+    icon: "language", thumb: "thumb-web",
+    tag: "Web & Análisis", tagClass: "tag-web",
+    title: "Página Web Corporativa",
+    short: "Sitio responsivo, SEO optimizado con dominio .com.co gratis.",
+    description: "Presencia digital profesional para tu empresa. Diseño moderno y responsivo, optimización SEO, formularios de contacto, integración con WhatsApp y dominio .com.co gratis por 1 año.",
+    features: ["Diseño moderno y responsivo","SEO On-page optimizado","Formularios de contacto","Integración WhatsApp","Dominio .com.co gratis 1 año","Hosting incluido primer mes"],
+    tech: ["HTML5","Tailwind CSS","JavaScript"],
+    price_cop: "800.000",
+    price_usd: "200",
+    special: "Dominio .com.co gratis por 1 año",
+    duration: "1–2 semanas"
+  },
+  {
+    id: 21, category: "web", level: "avanzado",
+    icon: "article", thumb: "thumb-web",
+    tag: "Web & Análisis", tagClass: "tag-web",
+    title: "Página Web con Blog CMS",
+    short: "Sitio corporativo con gestor de contenidos y blog SEO avanzado.",
+    description: "Sitio web corporativo potenciado con gestor de contenidos propio, blog integrado con posicionamiento SEO avanzado y 10 artículos iniciales redactados incluidos.",
+    features: ["CMS propio sin depender de terceros","Blog con SEO avanzado","10 artículos iniciales incluidos","Editor visual drag-and-drop","Métricas de contenido integradas","Optimización de velocidad Core Web Vitals"],
+    tech: ["Next.js","TailwindCSS","Sanity CMS"],
+    price_cop: "1.800.000",
+    price_usd: "450",
+    special: "Blog con 10 artículos iniciales incluidos",
+    duration: "2–3 semanas"
+  },
+  {
+    id: 22, category: "web", level: "avanzado",
+    icon: "api", thumb: "thumb-web",
+    tag: "Web & Análisis", tagClass: "tag-web",
+    title: "Integración de APIs Externas",
+    short: "Conexión con servicios de pagos, logística y terceros.",
+    description: "Conectamos tu sistema con cualquier servicio externo: pasarelas de pago (PayU, Wompi, Stripe), servicios de logística, ERPs, plataformas de marketing o cualquier API REST/GraphQL. Documentación técnica completa incluida.",
+    features: ["Integración con cualquier API REST/GraphQL","Pasarelas de pago (PayU, Wompi, Stripe)","Servicios de logística","Webhooks y eventos en tiempo real","Documentación técnica completa","Pruebas de integración incluidas"],
+    tech: ["Node.js","Python","Postman","Docker"],
+    price_cop: "900.000",
+    price_usd: "225",
+    special: "Documentación técnica completa entregada",
+    duration: "1–2 semanas"
+  },
+  {
+    id: 23, category: "web", level: "avanzado",
+    icon: "hub", thumb: "thumb-web",
+    tag: "Web & Análisis", tagClass: "tag-web",
+    title: "Portal de Contenidos",
+    short: "Plataforma para publicar, gestionar y monetizar contenido multimedia.",
+    description: "Portal editorial completo para medios, agencias y creadores de contenido. Gestión multimedia, membresías y suscripciones, integración con múltiples redes sociales y monetización integrada.",
+    features: ["Gestor de contenido multimedia completo","Membresías y suscripciones de pago","Integración multi-redes sociales","Monetización de contenido","Estadísticas de audiencia","CDN para entrega rápida de contenido"],
+    tech: ["Next.js","Strapi","PostgreSQL","AWS S3"],
+    price_cop: "2.500.000",
+    price_usd: "625",
+    special: "Integración con múltiples redes sociales",
+    duration: "5–6 semanas"
+  }
+];
+
+// ─── State ─────────────────────────────────────────────────────────────
+let activeFilter = "all";
+let searchTerm   = "";
+let viewMode     = "grid"; // "grid" | "list"
+
+// ─── Render cards ──────────────────────────────────────────────────────
+function levelLabel(level) {
+  const map = { basico: "Básico", avanzado: "Avanzado", premium: "Premium" };
+  return map[level] || level;
+}
+
+function renderCard(p) {
+  const delay = (p.id % 6) * 50;
+  return `
+    <article class="proj-card" data-id="${p.id}" data-category="${p.category}"
+             style="animation-delay:${delay}ms"
+             tabindex="0" role="button" aria-label="Ver detalle de ${p.title}">
+      <div class="proj-thumb ${p.thumb}">
+        <span class="material-symbols-outlined">${p.icon}</span>
+      </div>
+      <div class="p-5 flex flex-col flex-1">
+        <div class="flex items-center justify-between mb-2">
+          <span class="proj-tag ${p.tagClass}">${p.tag}</span>
+          <span class="badge badge-${p.level}">${levelLabel(p.level)}</span>
+        </div>
+        <h3 class="font-display font-700 text-text-main dark:text-white text-base mb-1 leading-snug">${p.title}</h3>
+        <p class="text-sm text-text-light dark:text-white/60 mb-3 flex-1">${p.short}</p>
+
+        <ul class="proj-features mb-4 space-y-1">
+          ${p.features.slice(0,3).map(f => `
+            <li class="feature-item">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">check_circle</span>
+              <span>${f}</span>
+            </li>`).join("")}
+        </ul>
+
+        <div class="proj-price-row flex items-center justify-between pt-3 border-t border-gray-100 dark:border-white/10">
+          <div>
+            <p class="text-xs text-text-light dark:text-white/40">Desde</p>
+            <p class="font-display font-700 text-primary text-lg">$${p.price_cop}</p>
+            <p class="text-xs text-text-light dark:text-white/40">COP / USD $${p.price_usd}</p>
+          </div>
+          <button class="flex items-center gap-1 text-sm text-primary font-600 hover:underline"
+                  onclick="openModal(${p.id}); event.stopPropagation();">
+            Ver más
+            <span class="material-symbols-outlined" style="font-size:.95rem">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function applyFilters() {
+  const grid = document.getElementById("portfolioGrid");
+  const filtered = projects.filter(p => {
+    const matchCat  = activeFilter === "all" || p.category === activeFilter;
+    const matchText = searchTerm === "" ||
+      p.title.toLowerCase().includes(searchTerm) ||
+      p.short.toLowerCase().includes(searchTerm) ||
+      p.tag.toLowerCase().includes(searchTerm);
+    return matchCat && matchText;
+  });
+
+  grid.innerHTML = filtered.length
+    ? filtered.map(renderCard).join("")
+    : "";
+
+  document.getElementById("emptyState").style.display = filtered.length ? "none" : "block";
+  document.getElementById("visibleCount").textContent  = filtered.length;
+
+  // Re-attach click events
+  grid.querySelectorAll(".proj-card").forEach(card => {
+    const id = +card.dataset.id;
+    card.addEventListener("click",  () => openModal(id));
+    card.addEventListener("keydown", e => { if (e.key === "Enter") openModal(id); });
+  });
+
+  // List/Grid view
+  if (viewMode === "list") {
+    grid.classList.remove("grid-cols-1","sm:grid-cols-2","lg:grid-cols-3");
+    grid.classList.add("grid-cols-1","list-view");
+  } else {
+    grid.classList.remove("list-view");
+    grid.classList.add("grid-cols-1","sm:grid-cols-2","lg:grid-cols-3");
+  }
+}
+
+function resetFilters() {
+  activeFilter = "all";
+  searchTerm   = "";
+  document.getElementById("searchInput").value = "";
+  document.getElementById("searchInputMobile").value = "";
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("is-active"));
+  document.querySelector("[data-filter=all]").classList.add("is-active");
+  applyFilters();
+}
+
+// ─── Modal ─────────────────────────────────────────────────────────────
+function openModal(id) {
+  const p = projects.find(x => x.id === id);
+  if (!p) return;
+  const modal = document.getElementById("modalOverlay");
+  document.getElementById("modalContent").innerHTML = `
+    <div class="proj-thumb ${p.thumb} rounded-t-2xl" style="height:180px">
+      <span class="material-symbols-outlined" style="font-size:4rem;color:white">${p.icon}</span>
+    </div>
+    <div class="p-6 sm:p-8">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="proj-tag ${p.tagClass}">${p.tag}</span>
+        <span class="badge badge-${p.level}">${levelLabel(p.level)}</span>
+        <span class="ml-auto text-xs text-text-light dark:text-white/40 flex items-center gap-1">
+          <span class="material-symbols-outlined" style="font-size:.9rem">schedule</span>
+          ${p.duration}
+        </span>
+      </div>
+      <h2 id="modalTitle" class="font-display text-2xl font-800 text-text-main dark:text-white mb-2">${p.title}</h2>
+      <p class="text-text-light dark:text-white/70 mb-6 leading-relaxed">${p.description}</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h4 class="font-display font-700 text-text-main dark:text-white text-sm mb-3 uppercase tracking-wide">
+            <span class="material-symbols-outlined align-middle mr-1 text-primary" style="font-size:1rem">checklist</span>
+            Características incluidas
+          </h4>
+          <ul class="space-y-2">
+            ${p.features.map(f => `
+              <li class="feature-item">
+                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">check_circle</span>
+                <span>${f}</span>
+              </li>`).join("")}
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-display font-700 text-text-main dark:text-white text-sm mb-3 uppercase tracking-wide">
+            <span class="material-symbols-outlined align-middle mr-1 text-primary" style="font-size:1rem">code_blocks</span>
+            Stack tecnológico
+          </h4>
+          <div class="flex flex-wrap gap-2 mb-5">
+            ${p.tech.map(t => `<span class="text-xs font-600 px-2.5 py-1 rounded-full bg-secondary dark:bg-white/10 text-text-main dark:text-white">${t}</span>`).join("")}
+          </div>
+
+          <h4 class="font-display font-700 text-text-main dark:text-white text-sm mb-2 uppercase tracking-wide">
+            <span class="material-symbols-outlined align-middle mr-1 text-accent" style="font-size:1rem">star</span>
+            Beneficio especial
+          </h4>
+          <p class="text-sm text-accent font-600 bg-teal-50 dark:bg-teal-900/30 rounded-lg px-3 py-2">${p.special}</p>
+        </div>
+      </div>
+
+      <div class="price-chip mb-6">
+        <p class="text-white/80 text-xs mb-0.5">Precio desde</p>
+        <p class="font-display font-800 text-2xl">$${p.price_cop} COP</p>
+        <p class="text-white/80 text-sm">≈ USD $${p.price_usd}</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="index.html#contacto"
+           style="flex:1;background:#00ABE4;color:white;text-align:center;padding:.75rem 1.5rem;border-radius:9999px;font-weight:700;text-decoration:none;transition:background .2s;"
+           onmouseover="this.style.background='#008dc0'"
+           onmouseout="this.style.background='#00ABE4'">
+          <span class="material-symbols-outlined align-middle mr-1" style="font-size:1rem">send</span>
+          Solicitar este proyecto
+        </a>
+        <button onclick="closeModal()"
+          style="flex:1;border:2px solid #d1e9f5;background:transparent;color:#5e818d;padding:.75rem 1.5rem;border-radius:9999px;font-weight:600;cursor:pointer;transition:all .2s;"
+          onmouseover="this.style.borderColor='#00ABE4';this.style.color='#00ABE4'"
+          onmouseout="this.style.borderColor='#d1e9f5';this.style.color='#5e818d'">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  `;
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+  document.getElementById("modalOverlay").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+// ─── Events ────────────────────────────────────────────────────────────
+document.getElementById("portfolioFilters").addEventListener("click", e => {
+  const btn = e.target.closest(".filter-btn");
+  if (!btn) return;
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("is-active"));
+  btn.classList.add("is-active");
+  activeFilter = btn.dataset.filter;
+  applyFilters();
+});
+
+function handleSearch(val) {
+  searchTerm = val.toLowerCase().trim();
+  applyFilters();
+}
+
+document.getElementById("searchInput").addEventListener("input", e => handleSearch(e.target.value));
+document.getElementById("searchInputMobile").addEventListener("input", e => handleSearch(e.target.value));
+
+document.getElementById("viewGrid").addEventListener("click", () => {
+  viewMode = "grid";
+  document.getElementById("viewGrid").classList.add("is-active");
+  document.getElementById("viewList").classList.remove("is-active");
+  applyFilters();
+});
+document.getElementById("viewList").addEventListener("click", () => {
+  viewMode = "list";
+  document.getElementById("viewList").classList.add("is-active");
+  document.getElementById("viewGrid").classList.remove("is-active");
+  applyFilters();
+});
+
+// Close modal on overlay click or Escape
+document.getElementById("modalOverlay").addEventListener("click", e => {
+  if (e.target === document.getElementById("modalOverlay")) closeModal();
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+// Theme toggle
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon   = document.getElementById("themeIcon");
+themeToggle.addEventListener("click", () => {
+  document.documentElement.classList.toggle("dark");
+  themeIcon.textContent = document.documentElement.classList.contains("dark") ? "light_mode" : "dark_mode";
+});
+
+// Scroll to top
+const scrollTopBtn = document.getElementById("scrollTop");
+window.addEventListener("scroll", () => {
+  scrollTopBtn.classList.toggle("visible", window.scrollY > 400);
+});
+scrollTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+// ─── Init ──────────────────────────────────────────────────────────────
+applyFilters();
+</script>
+</body>
+</html>
