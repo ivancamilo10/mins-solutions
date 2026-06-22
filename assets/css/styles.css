@@ -1104,3 +1104,225 @@ body{
   pointer-events:none;
 }
 .toast.show{ opacity:1; }
+/* =========================
+   Evidencias / Casos responsive
+========================= */
+.case-study-wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.case-study-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(17, 20, 57, 0.08);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(17, 20, 57, 0.06);
+}
+
+.dark .case-study-card {
+  background: #111827;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.case-study-main {
+  display: grid;
+  grid-template-columns: minmax(420px, 1.35fr) minmax(360px, 0.95fr);
+  align-items: stretch;
+  width: 100%;
+  min-height: 460px;
+}
+
+.case-study-media {
+  background: #edf3f8;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.dark .case-study-media {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.case-study-media img {
+  width: 100%;
+  height: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+.case-study-body {
+  padding: 34px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.case-study-kicker {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #00ABE4;
+  margin-bottom: 10px;
+}
+
+.case-study-title {
+  font-size: clamp(2rem, 2.2vw, 2.8rem);
+  line-height: 1.05;
+  font-weight: 800;
+  color: #111439;
+  margin-bottom: 18px;
+}
+
+.dark .case-study-title {
+  color: #ffffff;
+}
+
+.case-study-description {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #5e818d;
+  margin-bottom: 24px;
+  max-width: 36ch;
+}
+
+.dark .case-study-description {
+  color: rgba(255,255,255,0.72);
+}
+
+.case-study-meta {
+  display: grid;
+  gap: 18px;
+}
+
+.case-study-meta-item h4 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #111439;
+  margin-bottom: 4px;
+}
+
+.dark .case-study-meta-item h4 {
+  color: #ffffff;
+}
+
+.case-study-meta-item p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #5e818d;
+}
+
+.dark .case-study-meta-item p {
+  color: rgba(255,255,255,0.72);
+}
+
+.case-study-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 20px 22px 24px;
+  background: linear-gradient(to bottom, rgba(233,241,250,0.45), rgba(233,241,250,0.85));
+}
+
+.dark .case-study-gallery {
+  background: rgba(255,255,255,0.03);
+}
+
+.case-study-gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.case-study-gallery img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.14);
+}
+
+/* Desktop ancho */
+@media (min-width: 1440px) {
+  .case-study-main {
+    grid-template-columns: minmax(520px, 1.45fr) minmax(380px, 0.95fr);
+  }
+
+  .case-study-media img {
+    max-height: 390px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .case-study-main {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .case-study-media {
+    padding: 24px 24px 12px;
+  }
+
+  .case-study-media img {
+    max-height: 320px;
+  }
+
+  .case-study-body {
+    padding: 24px;
+  }
+
+  .case-study-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Móvil */
+@media (max-width: 640px) {
+  .case-study-card {
+    border-radius: 22px;
+  }
+
+  .case-study-media {
+    padding: 18px 18px 10px;
+  }
+
+  .case-study-media img {
+    max-height: 240px;
+    border-radius: 16px;
+  }
+
+  .case-study-body {
+    padding: 20px 18px 22px;
+  }
+
+  .case-study-title {
+    font-size: 1.8rem;
+  }
+
+  .case-study-description,
+  .case-study-meta-item p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .case-study-gallery {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px 18px 18px;
+  }
+
+  .case-study-gallery img {
+    height: 190px;
+  }
+}
