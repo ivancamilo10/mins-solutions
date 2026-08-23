@@ -13,7 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -23,22 +23,22 @@
       theme: {
         extend: {
           colors: {
-            primary: "#00ABE4",
-            "primary-dark": "#008dc0",
+            primary: "#50E2F0",
+            "primary-dark": "#2BB8C7",
             secondary: "#E9F1FA",
-            accent: "#00D1B2",
-            "text-main": "#111439",
-            "text-light": "#5e818d",
+            accent: "#50E2F0",
+            "text-main": "#0F172A",
+            "text-light": "#64748B",
             "background-light": "#FFFFFF",
             "background-alt": "#F8FAFC",
           },
           fontFamily: {
-            display: ["Inter", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
             body: ["Noto Sans", "sans-serif"],
           },
           boxShadow: {
-            soft: "0 20px 40px -15px rgba(17, 20, 57, 0.07)",
-            card: "0 4px 20px rgba(17, 20, 57, 0.04)",
+            soft: "0 20px 40px -15px rgba(10, 5, 39, 0.07)",
+            card: "0 4px 20px rgba(10, 5, 39, 0.04)",
           },
         },
       },
@@ -49,24 +49,24 @@
   <script type="application/ld+json" id="ld-json-business"></script>
 </head>
 
-<body class="font-display text-text-main antialiased bg-background-light dark:bg-[#0b1220] dark:text-white">
+<body class="font-display text-text-main antialiased dark:bg-[#0A0527] dark:text-white">
   <div class="min-h-screen w-full overflow-x-hidden">
 
     <!-- Top bar -->
-    <div class="topbar">
+    <div class="topbar border-b border-black/5 dark:border-white/5 bg-[#0A0527] text-white/80">
       <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-2 text-xs flex flex-col sm:flex-row gap-2 sm:gap-6">
         <span class="topbar__text">Operamos 100% en Colombia (remoto y presencial).</span>
         <span class="sm:ml-auto" id="topbar-contact"></span>
       </div>
     </div>
 
-    <!-- Header -->
-    <header class="site-header sticky top-0 z-50 w-full border-b border-black/5 dark:border-white/10 backdrop-blur bg-white/90 dark:bg-[#0b1220]/90">
+    <!-- Header Glassmorphism -->
+    <header class="site-header sticky top-0 z-50 w-full border-b border-white/20 dark:border-white/10 backdrop-blur-xl bg-white/75 dark:bg-[#0A0527]/75">
       <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <a href="#inicio" class="flex items-center gap-2.5">
             <img src="/docs/img/logo.png" alt="Logo de Mins Solutions TI" height="36" width="36" class="rounded-lg">
-            <span class="text-base font-bold tracking-tight">Mins Solutions TI</span>
+            <span class="text-base font-extrabold tracking-tight">Mins Solutions TI</span>
           </a>
 
           <nav class="hidden md:flex items-center gap-7">
@@ -79,9 +79,9 @@
           </nav>
 
           <div class="flex items-center gap-3">
-            <a href="#contacto" class="hidden sm:flex btn-primary h-9 px-5 text-sm font-semibold">Cotizar</a>
+            <a href="#contacto" class="hidden sm:flex btn-primary h-9 px-5 text-sm font-bold items-center rounded-full">Cotizar</a>
             <button id="mobileMenuBtn"
-              class="md:hidden btn-ghost"
+              class="md:hidden btn-ghost size-10"
               type="button"
               aria-label="Abrir menú"
               aria-expanded="false"
@@ -92,7 +92,7 @@
         </div>
       </div>
 
-      <div id="mobileMenu" class="hidden md:hidden border-t border-black/5 dark:border-white/10">
+      <div id="mobileMenu" class="hidden md:hidden border-t border-black/5 dark:border-white/10 bg-white/95 dark:bg-[#0A0527]/95 backdrop-blur-xl">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-3">
           <a class="navlink" href="#identidad" data-close-menu>Empresa</a>
           <a class="navlink" href="#valor" data-close-menu>Valor</a>
@@ -100,90 +100,93 @@
           <a class="navlink" href="#soluciones" data-close-menu>Soluciones</a>
           <a class="navlink" href="#portafolio" data-close-menu>Portafolio</a>
           <a class="navlink" href="#contacto" data-close-menu>Contacto</a>
-          <a href="#contacto" class="btn-primary h-11 px-6 w-full justify-center" data-close-menu>Cotizar</a>
+          <a href="#contacto" class="btn-primary h-11 px-6 w-full justify-center rounded-full" data-close-menu>Cotizar</a>
         </div>
       </div>
     </header>
 
     <main>
-      <!-- Hero Centrado Estilo Ycode -->
-      <section id="inicio" class="section section--hero scroll-mt-24">
+      <!-- Hero Principal con React Bits Style text animation -->
+      <section id="inicio" class="py-16 sm:py-24 scroll-mt-24 relative">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="hero-stack reveal">
-            <div class="hero-copy">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary dark:bg-white/10 text-primary text-xs font-bold uppercase tracking-wider">
-                <span class="size-2 rounded-full bg-accent animate-pulse"></span>
-                Software a la medida, automatización e IA aplicada
+          <div class="hero-stack reveal flex flex-col items-center text-center">
+            
+            
+
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight max-w-4xl mb-6 leading-[1.1]">
+              Tecnología bien construida para empresas que necesitan <span class="text-gradient-animated">operar mejor</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-text-light dark:text-white/70 max-w-2xl mb-8 leading-relaxed">
+              En Mins Solutions TI desarrollamos plataformas web, sistemas internos, automatizaciones e integraciones que mejoran procesos, control y crecimiento empresarial.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+              <a class="btn-primary h-12 px-8 text-sm font-bold justify-center rounded-full inline-flex items-center gap-2" href="#contacto">
+                Agendar reunión
+                <span class="material-symbols-outlined text-base">calendar_month</span>
+              </a>
+              <a class="btn-secondary h-12 px-8 text-sm font-bold justify-center rounded-full inline-flex items-center gap-2" href="#portafolio">
+                Ver portafolio
+                <span class="material-symbols-outlined text-base">arrow_forward</span>
+              </a>
+            </div>
+
+            <!-- Mini cards hero con React Bits Spotlight -->
+            <div class="w-full max-w-5xl">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+                <article class="glass-card p-5 rounded-2xl">
+                  <p class="text-xs font-bold uppercase tracking-wider mb-1 text-primary-dark dark:text-primary">Desarrollo full-stack</p>
+                  <p class="text-xs font-semibold text-text-main dark:text-white">React, Django, Node.js, PHP, Angular</p>
+                </article>
+                <article class="glass-card p-5 rounded-2xl">
+                  <p class="text-xs font-bold uppercase tracking-wider mb-1 text-primary-dark dark:text-primary">Despliegue cloud</p>
+                  <p class="text-xs font-semibold text-text-main dark:text-white">Render, Azure y entornos productivos</p>
+                </article>
+                <article class="glass-card p-5 rounded-2xl">
+                  <p class="text-xs font-bold uppercase tracking-wider mb-1 text-primary-dark dark:text-primary">Integraciones</p>
+                  <p class="text-xs font-semibold text-text-main dark:text-white">APIs, pagos, WhatsApp y automatización</p>
+                </article>
+                <article class="glass-card p-5 rounded-2xl">
+                  <p class="text-xs font-bold uppercase tracking-wider mb-1 text-primary-dark dark:text-primary">Entrega profesional</p>
+                  <p class="text-xs font-semibold text-text-main dark:text-white">QA, documentación y acompañamiento</p>
+                </article>
               </div>
-              <h1 class="hero-title">
-                Tecnología bien construida para empresas que necesitan operar mejor
-              </h1>
-              <p class="hero-description">
-                En Mins Solutions TI desarrollamos plataformas web, sistemas internos, automatizaciones e integraciones que mejoran procesos, control y crecimiento empresarial.
-              </p>
-              <div class="hero-actions">
-                <a class="btn-primary h-11 px-7 justify-center" href="#contacto">Agendar reunión</a>
-                <a class="btn-secondary h-11 px-7 justify-center" href="#portafolio">Ver portafolio</a>
+
+              <div class="inline-flex items-center gap-3 mt-8 p-2 px-5 rounded-full glass-panel">
+                <span class="material-symbols-outlined text-primary-dark dark:text-primary text-lg">person</span>
+                <p class="text-xs font-bold text-text-main dark:text-white">Iván Mejía Triana</p>
+                <span class="text-xs text-text-light dark:text-white/40">•</span>
+                <p class="text-xs text-text-light dark:text-white/70">Fundador · Desarrollo full-stack y soluciones empresariales</p>
               </div>
             </div>
 
-            <div class="hero-support">
-              <div class="hero-support__grid">
-                <article class="mini-card">
-                  <p class="mini-title">Desarrollo full-stack</p>
-                  <p class="mini-value">React, Django, Node.js, PHP, Angular</p>
-                </article>
-                <article class="mini-card">
-                  <p class="mini-title">Despliegue cloud</p>
-                  <p class="mini-value">Render, Azure y entornos productivos</p>
-                </article>
-                <article class="mini-card">
-                  <p class="mini-title">Integraciones</p>
-                  <p class="mini-value">APIs, pagos, WhatsApp y automatización</p>
-                </article>
-                <article class="mini-card">
-                  <p class="mini-title">Entrega profesional</p>
-                  <p class="mini-value">QA, documentación y acompañamiento</p>
-                </article>
-              </div>
-
-              <div class="text-center">
-                <div class="hero-founder">
-                  <div class="hero-founder__icon">
-                    <span class="material-symbols-outlined text-sm">person</span>
-                  </div>
-                  <p class="hero-founder__name">Iván Mejía Triana</p>
-                  <span class="text-xs text-black/30 dark:text-white/30">•</span>
-                  <p class="hero-founder__role">Fundador & Full-Stack Lead</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       <!-- Identidad -->
-      <section id="identidad" class="section scroll-mt-24">
+      <section id="identidad" class="py-16 sm:py-24 scroll-mt-24">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
             <div class="reveal">
-              <p class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Nuestra empresa</p>
-              <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Construimos software que ordena, automatiza y hace crecer negocios</h2>
-              <p class="text-text-light dark:text-white/70 mb-4 leading-relaxed text-base">
+              <p class="text-xs font-bold uppercase tracking-widest text-primary-dark dark:text-primary mb-3">Nuestra empresa</p>
+              <h2 class="text-3xl font-extrabold tracking-tight mb-4">Construimos software que ordena, automatiza y hace crecer negocios</h2>
+              <p class="text-text-light dark:text-white/70 mb-4 leading-relaxed text-sm sm:text-base">
                 Mins Solutions TI es una empresa colombiana especializada en desarrollo de software a la medida para organizaciones que necesitan mejorar ventas, operaciones, atención al cliente y control interno.
               </p>
-              <p class="text-text-light dark:text-white/70 leading-relaxed text-base">
+              <p class="text-text-light dark:text-white/70 leading-relaxed text-sm sm:text-base">
                 Diseñamos soluciones web y empresariales con enfoque full-stack, integración de APIs, despliegue cloud, automatización QA y acompañamiento continuo desde el análisis hasta producción.
               </p>
             </div>
             <div class="grid gap-5">
-              <div class="feature-card reveal">
-                <h3 class="feature-title">Misión</h3>
-                <p class="feature-text">Desarrollar soluciones de software personalizadas que optimicen procesos empresariales, mejoren la productividad y generen resultados reales para cada cliente.</p>
+              <div class="glass-card p-6 rounded-2xl reveal">
+                <h3 class="font-bold text-lg mb-2">Misión</h3>
+                <p class="text-xs sm:text-sm text-text-light dark:text-white/70 leading-relaxed">Desarrollar soluciones de software personalizadas que optimicen procesos empresariales, mejoren la productividad y generen resultados reales para cada cliente.</p>
               </div>
-              <div class="feature-card reveal">
-                <h3 class="feature-title">Visión</h3>
-                <p class="feature-text">Ser una empresa referente en Colombia y Latinoamérica en desarrollo de software a la medida, automatización inteligente y soluciones tecnológicas escalables.</p>
+              <div class="glass-card p-6 rounded-2xl reveal">
+                <h3 class="font-bold text-lg mb-2">Visión</h3>
+                <p class="text-xs sm:text-sm text-text-light dark:text-white/70 leading-relaxed">Ser una empresa referente en Colombia y Latinoamérica en desarrollo de software a la medida, automatización inteligente y soluciones tecnológicas escalables.</p>
               </div>
             </div>
           </div>
@@ -191,240 +194,178 @@
       </section>
 
       <!-- Propuesta de valor -->
-      <section id="valor" class="section section--alt scroll-mt-24">
+      <section id="valor" class="py-16 sm:py-24 scroll-mt-24">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-2xl mx-auto mb-12 reveal">
-            <p class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Propuesta de valor</p>
+            <p class="text-xs font-bold uppercase tracking-widest text-primary-dark dark:text-primary mb-3">Propuesta de valor</p>
             <h2 class="text-3xl font-extrabold tracking-tight mb-3">Por qué elegir Mins Solutions TI</h2>
-            <p class="text-text-light dark:text-white/70">
+            <p class="text-text-light dark:text-white/70 text-sm">
               No solo desarrollamos software: construimos soluciones con enfoque técnico, comercial y operativo para que el producto tenga valor real en el negocio.
             </p>
           </div>
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="feature-card reveal">
-              <h3 class="feature-title">Enfoque a medida</h3>
-              <p class="feature-text">Cada solución se diseña según el proceso real del cliente, no sobre plantillas genéricas.</p>
+            <div class="glass-card p-6 rounded-2xl reveal">
+              <h3 class="font-bold text-base mb-2">Enfoque a medida</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Cada solución se diseña según el proceso real del cliente, no sobre plantillas genéricas.</p>
             </div>
-            <div class="feature-card reveal">
-              <h3 class="feature-title">Integración tecnológica</h3>
-              <p class="feature-text">Conectamos sistemas, APIs, pagos, notificaciones y automatizaciones en un mismo flujo.</p>
+            <div class="glass-card p-6 rounded-2xl reveal">
+              <h3 class="font-bold text-base mb-2">Integración tecnológica</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Conectamos sistemas, APIs, pagos, notificaciones y automatizaciones en un mismo flujo.</p>
             </div>
-            <div class="feature-card reveal">
-              <h3 class="feature-title">Visión de negocio</h3>
-              <p class="feature-text">Priorizamos resultados medibles: eficiencia operativa, conversión, control y escalabilidad.</p>
+            <div class="glass-card p-6 rounded-2xl reveal">
+              <h3 class="font-bold text-base mb-2">Visión de negocio</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Priorizamos resultados medibles: eficiencia operativa, conversión, control y escalabilidad.</p>
             </div>
-            <div class="feature-card reveal">
-              <h3 class="feature-title">Acompañamiento real</h3>
-              <p class="feature-text">Entregamos, capacitamos, documentamos y acompañamos el uso posterior de la solución.</p>
+            <div class="glass-card p-6 rounded-2xl reveal">
+              <h3 class="font-bold text-base mb-2">Acompañamiento real</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Entregamos, capacitamos, documentamos y acompañamos el uso posterior de la solución.</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Tecnologías -->
-      <section id="tecnologias" class="section scroll-mt-24">
+      <section id="tecnologias" class="py-16 sm:py-24 scroll-mt-24">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-            <p class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Tecnología actual</p>
+            <p class="text-xs font-bold uppercase tracking-widest text-primary-dark dark:text-primary mb-3">Tecnología actual</p>
             <h2 class="text-3xl font-extrabold tracking-tight mb-4">Desarrollo moderno con automatización e inteligencia aplicada</h2>
-            <p class="text-text-light dark:text-white/70">
+            <p class="text-text-light dark:text-white/70 text-sm">
               Combinamos desarrollo full-stack con plataformas actuales de IA, búsqueda, automatización y cloud para construir productos más útiles, conectados y preparados para evolucionar.
             </p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div class="feature-card reveal">
+            <div class="glass-card p-6 rounded-2xl reveal">
               <div class="feature-icon"><span class="material-symbols-outlined">travel_explore</span></div>
-              <h3 class="feature-title">Perplexity</h3>
-              <p class="feature-text">Búsqueda web en tiempo real, respuestas fundamentadas y experiencias de consulta asistida.</p>
+              <h3 class="font-bold text-base mb-1">Perplexity</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Búsqueda web en tiempo real, respuestas fundamentadas y experiencias de consulta asistida.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card p-6 rounded-2xl reveal">
               <div class="feature-icon"><span class="material-symbols-outlined">psychology</span></div>
-              <h3 class="feature-title">Claude</h3>
-              <p class="feature-text">Agentes, automatización compleja, análisis documental y flujos con contexto amplio.</p>
+              <h3 class="font-bold text-base mb-1">Claude</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Agentes, automatización compleja, análisis documental y flujos con contexto amplio.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card p-6 rounded-2xl reveal">
               <div class="feature-icon"><span class="material-symbols-outlined">smart_toy</span></div>
-              <h3 class="feature-title">ChatGPT</h3>
-              <p class="feature-text">Asistentes conversacionales, productividad, soporte, generación de contenido y experiencias inteligentes.</p>
+              <h3 class="font-bold text-base mb-1">ChatGPT</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Asistentes conversacionales, productividad, soporte, generación de contenido y experiencias inteligentes.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card p-6 rounded-2xl reveal">
               <div class="feature-icon"><span class="material-symbols-outlined">token</span></div>
-              <h3 class="feature-title">Gemini</h3>
-              <p class="feature-text">Tool use, búsqueda integrada, procesamiento multimodal e integración con ecosistema Google.</p>
+              <h3 class="font-bold text-base mb-1">Gemini</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Tool use, búsqueda integrada, procesamiento multimodal e integración con ecosistema Google.</p>
             </div>
           </div>
           <div class="grid lg:grid-cols-3 gap-6">
-            <div class="feature-card reveal">
-              <h3 class="feature-title">Aplicaciones prácticas</h3>
-              <p class="feature-text">Chatbots empresariales, buscadores internos, asistentes comerciales, análisis documental y automatización operativa.</p>
+            <div class="glass-card p-6 rounded-2xl reveal">
+              <h3 class="font-bold text-base mb-2">Aplicaciones prácticas</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Chatbots empresariales, buscadores internos, asistentes comerciales, análisis documental y automatización operativa.</p>
             </div>
-            <div class="feature-card reveal">
-              <h3 class="feature-title">Integración al software</h3>
-              <p class="feature-text">Conectamos IA con CRM, e-commerce, dashboards, WhatsApp, ERPs, APIs externas y bases de datos del negocio.</p>
+            <div class="glass-card p-6 rounded-2xl reveal">
+              <h3 class="font-bold text-base mb-2">Integración al software</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Conectamos IA con CRM, e-commerce, dashboards, WhatsApp, ERPs, APIs externas y bases de datos del negocio.</p>
             </div>
-            <div class="feature-card reveal">
-              <h3 class="feature-title">Implementación responsable</h3>
-              <p class="feature-text">Usamos IA como una capa útil del producto, con objetivos claros, control del flujo y validación humana.</p>
+            <div class="glass-card p-6 rounded-2xl reveal">
+              <h3 class="font-bold text-base mb-2">Implementación responsable</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Usamos IA como una capa útil del producto, con objetivos claros, control del flujo y validación humana.</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Soluciones -->
-      <section id="soluciones" class="section section--alt scroll-mt-24">
+      <section id="soluciones" class="py-16 sm:py-24 scroll-mt-24">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-2xl mx-auto mb-12 reveal">
-            <p class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Líneas de servicio</p>
-            <h2 class="text-3xl font-extrabold tracking-tight mb-3">Soluciones en Colombia</h2>
-            <p class="text-text-light dark:text-white/70">
-              Desarrollo web personalizado para negocios colombianos: menos tareas manuales, más control y sistemas listos para crecer.
+            <p class="text-xs font-bold uppercase tracking-widest text-primary-dark dark:text-primary mb-3">Líneas de servicio</p>
+            <h2 class="text-3xl font-extrabold tracking-tight mb-3">Soluciones de software a la medida en Colombia</h2>
+            <p class="text-text-light dark:text-white/70 text-sm">
+              Desarrollo de software personalizado según la operación de tu negocio: menos tareas manuales, más control y plataformas escalables.
             </p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="feature-card reveal">
+            <div class="glass-card p-6 rounded-2xl reveal">
               <div class="feature-icon"><span class="material-symbols-outlined">shopping_cart</span></div>
-              <h3 class="feature-title">E-commerce</h3>
-              <p class="feature-text">Tienda online, catálogo, pagos, envíos e integraciones. Diseñado para convertir y escalar.</p>
+              <h3 class="font-bold text-base mb-1">E-commerce</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Tienda online, catálogo, pagos, envíos e integraciones. Diseñado para convertir y escalar.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card p-6 rounded-2xl reveal">
               <div class="feature-icon"><span class="material-symbols-outlined">restaurant</span></div>
-              <h3 class="feature-title">POS / Restaurantes</h3>
-              <p class="feature-text">Comandas, caja, inventario, cocina y reportes para operación diaria sin caos.</p>
+              <h3 class="font-bold text-base mb-1">POS / Restaurantes</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Comandas, caja, inventario, cocina y reportes para operación diaria sin caos.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card p-6 rounded-2xl reveal">
               <div class="feature-icon"><span class="material-symbols-outlined">school</span></div>
-              <h3 class="feature-title">Plataformas de cursos</h3>
-              <p class="feature-text">Lecciones, progreso, certificados, pagos, panel administrativo y automatización de contenidos.</p>
+              <h3 class="font-bold text-base mb-1">Plataformas de cursos</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Lecciones, progreso, certificados, pagos, panel administrativo y automatización de contenidos.</p>
             </div>
-            <div class="feature-card reveal">
+            <div class="glass-card p-6 rounded-2xl reveal">
               <div class="feature-icon"><span class="material-symbols-outlined">badge</span></div>
-              <h3 class="feature-title">Gestión de empleados</h3>
-              <p class="feature-text">Roles, asistencia, documentos, tareas internas y reportes para control organizacional.</p>
+              <h3 class="font-bold text-base mb-1">Gestión de empleados</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Roles, asistencia, documentos, tareas internas y reportes para control organizacional.</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Proceso -->
-      <section id="proceso" class="section scroll-mt-24">
+      <section id="proceso" class="py-16 sm:py-24 scroll-mt-24">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 reveal">
             <div class="max-w-xl">
-              <p class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Pasos claros</p>
+              <p class="text-xs font-bold uppercase tracking-widest text-primary-dark dark:text-primary mb-3">Pasos claros</p>
               <h2 class="text-3xl font-extrabold tracking-tight mb-3">Metodología estructurada, entregas medibles</h2>
-              <p class="text-text-light dark:text-white/70">
+              <p class="text-text-light dark:text-white/70 text-sm">
                 Trabajamos con definición de alcance, prototipo, desarrollo por sprints, validación QA, despliegue y acompañamiento.
               </p>
             </div>
-            <a class="text-primary font-bold inline-flex items-center gap-1 hover:gap-2 transition-all" href="#contacto">
+            <a class="text-primary-dark dark:text-primary font-bold inline-flex items-center gap-1 hover:gap-2 transition-all text-sm" href="#contacto">
               Iniciar proyecto <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div class="step-card reveal">
+            <div class="glass-card p-6 rounded-2xl reveal">
               <div class="step-num">1</div>
-              <h3 class="step-title">Discovery</h3>
-              <p class="step-text">Entendemos operación, objetivos, usuarios y prioridades del negocio.</p>
+              <h3 class="font-bold text-base mb-1">Discovery</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Entendemos operación, objetivos, usuarios y prioridades del negocio.</p>
               <span class="step-badge">2–3 días</span>
             </div>
-            <div class="step-card reveal">
+            <div class="glass-card p-6 rounded-2xl reveal">
               <div class="step-num step-num-outline">2</div>
-              <h3 class="step-title">UX/UI</h3>
-              <p class="step-text">Diseñamos flujo y prototipo para validar pantallas y experiencia antes de construir.</p>
+              <h3 class="font-bold text-base mb-1">UX/UI</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Diseñamos flujo y prototipo para validar pantallas y experiencia antes de construir.</p>
               <span class="step-badge">1 semana</span>
             </div>
-            <div class="step-card reveal">
+            <div class="glass-card p-6 rounded-2xl reveal">
               <div class="step-num step-num-outline">3</div>
-              <h3 class="step-title">Desarrollo + QA</h3>
-              <p class="step-text">Construimos por sprints, probamos funcionalmente y afinamos con feedback temprano.</p>
+              <h3 class="font-bold text-base mb-1">Desarrollo + QA</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Construimos por sprints, probamos funcionalmente y afinamos con feedback temprano.</p>
               <span class="step-badge">Sprints</span>
             </div>
-            <div class="step-card reveal">
+            <div class="glass-card p-6 rounded-2xl reveal">
               <div class="step-num step-num-accent">
                 <span class="material-symbols-outlined text-base">check</span>
               </div>
-              <h3 class="step-title">Deploy + soporte</h3>
-              <p class="step-text">Publicamos, estabilizamos y acompañamos la puesta en marcha del sistema.</p>
+              <h3 class="font-bold text-base mb-1">Deploy + soporte</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Publicamos, estabilizamos y acompañamos la puesta en marcha del sistema.</p>
               <span class="step-badge step-badge-accent">Entrega</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Caso destacado Corregido (Fotografía 2 Solucionada) -->
-      <section id="evidencias" class="section section--alt scroll-mt-24">
-        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center max-w-xl mx-auto mb-10 reveal">
-            <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Proyecto de éxito</p>
-            <h2 class="text-3xl font-extrabold tracking-tight">Caso destacado</h2>
-          </div>
-
-          <article class="bg-white dark:bg-[#111c30] rounded-2xl border border-black/5 dark:border-white/10 shadow-soft overflow-hidden reveal">
-            <div class="grid lg:grid-cols-12 gap-0">
-              <!-- Vista previa de la interfaz -->
-              <div class="lg:col-span-7 bg-slate-900 overflow-hidden min-h-[340px] flex items-center justify-center p-4 lg:p-6">
-                <img src="assets/img/fitpower-1.jpg" alt="Vista principal del sistema FitPower" class="w-full h-full object-cover rounded-xl shadow-lg border border-white/10" loading="lazy">
-              </div>
-
-              <!-- Información estructurada con diseño tipo Tarjeta -->
-              <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between bg-white dark:bg-[#111c30]">
-                <div>
-                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary dark:bg-white/10 text-primary text-xs font-bold uppercase tracking-wider mb-3">
-                    FitPower
-                  </div>
-                  <h3 class="text-2xl font-bold tracking-tight mb-3 text-text-main dark:text-white">Plataforma de Control Fitness</h3>
-                  <p class="text-text-light dark:text-white/70 text-sm leading-relaxed mb-6">
-                    Solución de software integral para modernizar el control administrativo, mensualidades e inventario del centro deportivo.
-                  </p>
-
-                  <div class="space-y-4">
-                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-white/5 border border-black/5 dark:border-white/5">
-                      <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Qué se resolvió</h4>
-                      <p class="text-xs text-text-main dark:text-white/90 leading-normal">Digitalización operativa, automatización del control de ingresos y registro fluido de deportistas.</p>
-                    </div>
-
-                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-white/5 border border-black/5 dark:border-white/5">
-                      <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Tecnologías</h4>
-                      <p class="text-xs text-text-main dark:text-white/90 leading-normal">PHP, MySQL, HTML5, CSS3, JavaScript y arquitectura MVC personalizada.</p>
-                    </div>
-
-                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-white/5 border border-black/5 dark:border-white/5">
-                      <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Resultado</h4>
-                      <p class="text-xs text-text-main dark:text-white/90 leading-normal">Control total de pagos vencidos, trazabilidad del negocio y reducción de tareas manuales.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Galería de capturas adicionales -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 sm:p-6 bg-slate-50 dark:bg-black/20 border-t border-black/5 dark:border-white/5">
-              <div class="overflow-hidden rounded-xl border border-black/10 dark:border-white/10 aspect-video">
-                <img src="assets/img/fitpower-1.jpg" alt="Panel administrativo FitPower" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-              </div>
-              <div class="overflow-hidden rounded-xl border border-black/10 dark:border-white/10 aspect-video">
-                <img src="assets/img/fitpower-2.jpg" alt="Módulo de gestión FitPower" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-              </div>
-              <div class="overflow-hidden rounded-xl border border-black/10 dark:border-white/10 aspect-video">
-                <img src="assets/img/fitpower-3.jpg" alt="Pantalla de pagos FitPower" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
       <!-- Portafolio -->
-      <section id="portafolio" class="section scroll-mt-24">
+      <section id="portafolio" class="py-16 sm:py-24 scroll-mt-24">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 reveal">
             <div class="max-w-2xl">
-              <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Proyectos desarrollados</p>
+              <p class="text-xs font-bold uppercase tracking-widest text-primary-dark dark:text-primary mb-2">Proyectos desarrollados</p>
               <h2 class="text-3xl font-extrabold tracking-tight mb-2">Portafolio</h2>
               <p class="text-text-light dark:text-white/70 text-sm">
                 Soluciones de software desarrolladas a medida para impulsar negocios reales en Colombia y Latinoamérica.
               </p>
             </div>
-            <a id="portfolioLinkBtn" class="btn-primary h-10 px-5 text-sm" href="portafolio.html" target="_blank" rel="noopener noreferrer">
+            <a id="portfolioLinkBtn" class="btn-primary h-10 px-5 text-sm font-bold rounded-full inline-flex items-center" href="portafolio.html" target="_blank" rel="noopener noreferrer">
               Ver portafolio completo
             </a>
           </div>
@@ -441,84 +382,84 @@
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="portfolioGrid">
-            <article class="portfolio-card reveal" data-category="pos">
+            <article class="glass-card p-5 rounded-2xl reveal" data-category="pos">
               <div class="portfolio-thumb"><span class="material-symbols-outlined">point_of_sale</span></div>
               <div class="pt-4">
                 <p class="portfolio-tag">POS</p>
-                <h3 class="portfolio-title">Sistema POS Avanzado</h3>
-                <p class="portfolio-text">Inventario, múltiples cajas, reportes financieros y capacitación del equipo.</p>
+                <h3 class="font-bold text-base mb-1">Sistema POS Avanzado</h3>
+                <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Inventario, múltiples cajas, reportes financieros y capacitación del equipo.</p>
               </div>
             </article>
 
-            <article class="portfolio-card reveal" data-category="ecommerce">
+            <article class="glass-card p-5 rounded-2xl reveal" data-category="ecommerce">
               <div class="portfolio-thumb"><span class="material-symbols-outlined">storefront</span></div>
               <div class="pt-4">
                 <p class="portfolio-tag">E-commerce</p>
-                <h3 class="portfolio-title">Tienda Online con IA</h3>
-                <p class="portfolio-text">Recomendaciones inteligentes, marketing automatizado y análisis avanzado.</p>
+                <h3 class="font-bold text-base mb-1">Tienda Online con IA</h3>
+                <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Recomendaciones inteligentes, marketing automatizado y análisis avanzado.</p>
               </div>
             </article>
 
-            <article class="portfolio-card reveal" data-category="courses">
+            <article class="glass-card p-5 rounded-2xl reveal" data-category="courses">
               <div class="portfolio-thumb"><span class="material-symbols-outlined">school</span></div>
               <div class="pt-4">
                 <p class="portfolio-tag">Cursos / LMS</p>
-                <h3 class="portfolio-title">Plataforma Educativa Pro</h3>
-                <p class="portfolio-text">Videoconferencias, foros, certificados y seguimiento de progreso.</p>
+                <h3 class="font-bold text-base mb-1">Plataforma Educativa Pro</h3>
+                <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Videoconferencias, foros, certificados y seguimiento de progreso.</p>
               </div>
             </article>
 
-            <article class="portfolio-card reveal" data-category="hr">
+            <article class="glass-card p-5 rounded-2xl reveal" data-category="hr">
               <div class="portfolio-thumb"><span class="material-symbols-outlined">manage_accounts</span></div>
               <div class="pt-4">
                 <p class="portfolio-tag">Empleados</p>
-                <h3 class="portfolio-title">Gestión de Turnos</h3>
-                <p class="portfolio-text">Asignación y control del personal con notificaciones en tiempo real.</p>
+                <h3 class="font-bold text-base mb-1">Gestión de Turnos</h3>
+                <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Asignación y control del personal con notificaciones en tiempo real.</p>
               </div>
             </article>
 
-            <article class="portfolio-card reveal" data-category="crm">
+            <article class="glass-card p-5 rounded-2xl reveal" data-category="crm">
               <div class="portfolio-thumb"><span class="material-symbols-outlined">contacts</span></div>
               <div class="pt-4">
                 <p class="portfolio-tag">CRM</p>
-                <h3 class="portfolio-title">CRM con Automatización</h3>
-                <p class="portfolio-text">Automatización comercial, seguimiento de clientes e integración con canales digitales.</p>
+                <h3 class="font-bold text-base mb-1">CRM con Automatización</h3>
+                <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Automatización comercial, seguimiento de clientes e integración con canales digitales.</p>
               </div>
             </article>
 
-            <article class="portfolio-card reveal" data-category="apps">
+            <article class="glass-card p-5 rounded-2xl reveal" data-category="apps">
               <div class="portfolio-thumb"><span class="material-symbols-outlined">smartphone</span></div>
               <div class="pt-4">
                 <p class="portfolio-tag">Apps Móvil</p>
-                <h3 class="portfolio-title">App iOS & Android</h3>
-                <p class="portfolio-text">Desarrollo multiplataforma con sincronización y publicación asistida.</p>
+                <h3 class="font-bold text-base mb-1">App iOS & Android</h3>
+                <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Desarrollo multiplataforma con sincronización y publicación asistida.</p>
               </div>
             </article>
 
-            <article class="portfolio-card reveal" data-category="web">
+            <article class="glass-card p-5 rounded-2xl reveal" data-category="web">
               <div class="portfolio-thumb"><span class="material-symbols-outlined">bar_chart</span></div>
               <div class="pt-4">
                 <p class="portfolio-tag">Web & Análisis</p>
-                <h3 class="portfolio-title">Dashboard de KPIs</h3>
-                <p class="portfolio-text">Panel de control con métricas clave, gráficos y actualización frecuente.</p>
+                <h3 class="font-bold text-base mb-1">Dashboard de KPIs</h3>
+                <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Panel de control con métricas clave, gráficos y actualización frecuente.</p>
               </div>
             </article>
 
-            <article class="portfolio-card reveal" data-category="web">
+            <article class="glass-card p-5 rounded-2xl reveal" data-category="web">
               <div class="portfolio-thumb"><span class="material-symbols-outlined">receipt_long</span></div>
               <div class="pt-4">
                 <p class="portfolio-tag">Web & Análisis</p>
-                <h3 class="portfolio-title">Facturación Electrónica</h3>
-                <p class="portfolio-text">Gestión de facturación con cumplimiento normativo e integración administrativa.</p>
+                <h3 class="font-bold text-base mb-1">Facturación Electrónica</h3>
+                <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Gestión de facturación con cumplimiento normativo e integración administrativa.</p>
               </div>
             </article>
 
-            <article class="portfolio-card reveal" data-category="web">
+            <article class="glass-card p-5 rounded-2xl reveal" data-category="web">
               <div class="portfolio-thumb"><span class="material-symbols-outlined">calendar_month</span></div>
               <div class="pt-4">
                 <p class="portfolio-tag">Web & Análisis</p>
-                <h3 class="portfolio-title">Sistema de Reservas</h3>
-                <p class="portfolio-text">Agendamiento de citas y servicios con recordatorios automáticos.</p>
+                <h3 class="font-bold text-base mb-1">Sistema de Reservas</h3>
+                <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Agendamiento de citas y servicios con recordatorios automáticos.</p>
               </div>
             </article>
           </div>
@@ -526,94 +467,107 @@
       </section>
 
       <!-- Confianza -->
-      <section id="confianza" class="section section--alt scroll-mt-24">
+      <section id="confianza" class="py-16 sm:py-24 scroll-mt-24">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-2xl mx-auto mb-12 reveal">
-            <p class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Respaldo</p>
+            <p class="text-xs font-bold uppercase tracking-widest text-primary-dark dark:text-primary mb-3">Respaldo</p>
             <h2 class="text-3xl font-extrabold tracking-tight mb-3">Más que desarrollo: proceso, calidad y acompañamiento</h2>
-            <p class="text-text-light dark:text-white/70">
+            <p class="text-text-light dark:text-white/70 text-sm">
               Cada proyecto se trabaja con estructura clara, entregables definidos y soporte posterior a la entrega.
             </p>
           </div>
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="feature-card reveal">
-              <h3 class="feature-title">Garantía</h3>
-              <p class="feature-text">Incluimos ajustes posteriores al lanzamiento para asegurar una entrega estable.</p>
+            <div class="glass-card p-6 rounded-2xl reveal">
+              <h3 class="font-bold text-base mb-2">Garantía</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Incluimos ajustes posteriores al lanzamiento para asegurar una entrega estable.</p>
             </div>
-            <div class="feature-card reveal">
-              <h3 class="feature-title">Documentación</h3>
-              <p class="feature-text">Entregamos manuales, documentación técnica y guías de uso según alcance.</p>
+            <div class="glass-card p-6 rounded-2xl reveal">
+              <h3 class="font-bold text-base mb-2">Documentación</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Entregamos manuales, documentación técnica y guías de uso según alcance.</p>
             </div>
-            <div class="feature-card reveal">
-              <h3 class="feature-title">Capacitación</h3>
-              <p class="feature-text">Acompañamos al cliente para que la solución pueda adoptarse correctamente.</p>
+            <div class="glass-card p-6 rounded-2xl reveal">
+              <h3 class="font-bold text-base mb-2">Capacitación</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Acompañamos al cliente para que la solución pueda adoptarse correctamente.</p>
             </div>
-            <div class="feature-card reveal">
-              <h3 class="feature-title">QA</h3>
-              <p class="feature-text">Cada software se valida antes de publicarse para reducir errores y generar confianza.</p>
+            <div class="glass-card p-6 rounded-2xl reveal">
+              <h3 class="font-bold text-base mb-2">QA</h3>
+              <p class="text-xs text-text-light dark:text-white/70 leading-relaxed">Cada software se valida antes de publicarse para reducir errores y generar confianza.</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Planes -->
-      <section id="planes" class="section scroll-mt-24">
+      <section id="planes" class="py-16 sm:py-24 scroll-mt-24">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-2xl mx-auto mb-12 reveal">
-            <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Modelos flexibles</p>
+            <p class="text-xs font-bold uppercase tracking-widest text-primary-dark dark:text-primary mb-2">Modelos flexibles</p>
             <h2 class="text-3xl font-extrabold tracking-tight">Modalidades de trabajo adaptadas a tu etapa</h2>
             <p class="text-text-light dark:text-white/70 mt-2 text-sm">
               Puedes contratar por proyecto, por sprints evolutivos o por acompañamiento mensual.
             </p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-            <div class="plan-card reveal">
-              <h3 class="plan-title">MVP (validación)</h3>
-              <p class="plan-sub">Para lanzar rápido y probar mercado.</p>
-              <ul class="plan-list">
-                <li>Prototipo + flujo principal.</li>
-                <li>Despliegue inicial.</li>
-                <li>Capacitación base.</li>
-              </ul>
-              <a class="btn-outline w-full h-11 justify-center text-sm" href="#contacto">Cotizar</a>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            
+            <div class="glass-card p-8 rounded-3xl flex flex-col justify-between reveal">
+              <div>
+                <h3 class="text-xl font-bold mb-1">MVP (validación)</h3>
+                <p class="text-xs text-text-light dark:text-white/70 mb-6">Para lanzar rápido y probar mercado.</p>
+                <ul class="plan-list">
+                  <li>Prototipo + flujo principal.</li>
+                  <li>Despliegue inicial.</li>
+                  <li>Capacitación base.</li>
+                </ul>
+              </div>
+              <a class="btn-outline w-full h-11 justify-center text-sm font-bold rounded-xl inline-flex items-center" href="#contacto">Cotizar</a>
             </div>
-            <div class="plan-card plan-card-highlight reveal">
-              <div class="plan-badge">Recomendado</div>
-              <h3 class="plan-title">Crecimiento (sprints)</h3>
-              <p class="plan-sub">Para mejorar y escalar sin frenar la operación.</p>
-              <ul class="plan-list">
-                <li>Sprints y entregas continuas.</li>
-                <li>Automatización QA según proyecto.</li>
-                <li>Integraciones con APIs, pagos y WhatsApp.</li>
-              </ul>
-              <a class="btn-primary w-full h-11 justify-center text-sm" href="#contacto">Agendar</a>
+
+            <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between border-2 border-primary/50 relative shadow-xl reveal">
+              <div class="absolute -top-3.5 right-6 bg-primary text-slate-900 text-[10px] font-extrabold uppercase tracking-widest py-1 px-3.5 rounded-full shadow-md">
+                Recomendado
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1">Crecimiento (sprints)</h3>
+                <p class="text-xs text-text-light dark:text-white/70 mb-6">Para mejorar y escalar sin frenar la operación.</p>
+                <ul class="plan-list">
+                  <li>Sprints y entregas continuas.</li>
+                  <li>Automatización QA según proyecto.</li>
+                  <li>Integraciones con APIs, pagos y WhatsApp.</li>
+                </ul>
+              </div>
+              <a class="btn-primary w-full h-11 justify-center text-sm font-bold rounded-xl inline-flex items-center" href="#contacto">Agendar</a>
             </div>
-            <div class="plan-card reveal">
-              <h3 class="plan-title">Soporte / Mantenimiento</h3>
-              <p class="plan-sub">Para estabilidad, monitoreo y mejoras menores.</p>
-              <ul class="plan-list">
-                <li>Backups y monitoreo básico.</li>
-                <li>Correcciones y ajustes.</li>
-                <li>Roadmap trimestral.</li>
-              </ul>
-              <a class="btn-outline w-full h-11 justify-center text-sm" href="#contacto">Hablar</a>
+
+            <div class="glass-card p-8 rounded-3xl flex flex-col justify-between reveal">
+              <div>
+                <h3 class="text-xl font-bold mb-1">Soporte / Mantenimiento</h3>
+                <p class="text-xs text-text-light dark:text-white/70 mb-6">Para estabilidad, monitoreo y mejoras menores.</p>
+                <ul class="plan-list">
+                  <li>Backups y monitoreo básico.</li>
+                  <li>Correcciones y ajustes.</li>
+                  <li>Roadmap trimestral.</li>
+                </ul>
+              </div>
+              <a class="btn-outline w-full h-11 justify-center text-sm font-bold rounded-xl inline-flex items-center" href="#contacto">Hablar</a>
             </div>
+
           </div>
         </div>
       </section>
 
       <!-- Contacto -->
-      <section id="contacto" class="section scroll-mt-24">
-        <div class="max-w-[720px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-10 reveal">
-            <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Canal directo</p>
-            <h2 class="text-3xl font-extrabold tracking-tight mb-2">Hablemos de tu proyecto</h2>
-            <p class="text-text-light dark:text-white/70 text-sm">
-              Cuéntanos qué necesitas resolver y evaluaremos la solución técnica ideal para tu empresa.
-            </p>
-          </div>
+      <section id="contacto" class="py-16 sm:py-24 scroll-mt-24">
+        <div class="max-w-[760px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div class="bg-white dark:bg-[#111c30] p-6 sm:p-10 rounded-2xl shadow-soft border border-black/5 dark:border-white/10 reveal">
+          <div class="glass-panel p-8 sm:p-12 rounded-3xl shadow-soft reveal">
+            <div class="text-center mb-8">
+              <p class="text-xs font-bold uppercase tracking-widest text-primary-dark dark:text-primary mb-2">Canal directo</p>
+              <h2 class="text-3xl font-extrabold tracking-tight mb-2">Hablemos de tu proyecto</h2>
+              <p class="text-text-light dark:text-white/70 text-sm">
+                Cuéntanos qué necesitas resolver y evaluaremos la solución técnica ideal para tu empresa.
+              </p>
+            </div>
+
             <form
               id="leadForm"
               class="pageclip-form space-y-5"
@@ -623,73 +577,75 @@
               
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-text-main dark:text-white" for="nombre">Nombre</label>
-                    <input
-                        id="nombre"
-                        name="name"
-                        class="input w-full"
-                        type="text"
-                        placeholder="Iván / Ana / Juan"
-                        required>
+                  <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-text-main dark:text-white" for="nombre">Nombre</label>
+                  <input
+                    id="nombre"
+                    name="name"
+                    class="input w-full"
+                    type="text"
+                    placeholder="Iván / Ana / Juan"
+                    required>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-text-main dark:text-white" for="email">Correo electrónico</label>
-                    <input
-                        id="email"
-                        name="email"
-                        class="input w-full"
-                        type="email"
-                        placeholder="correo@empresa.com"
-                        required>
+                  <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-text-main dark:text-white" for="email">Correo electrónico</label>
+                  <input
+                    id="email"
+                    name="email"
+                    class="input w-full"
+                    type="email"
+                    placeholder="correo@empresa.com"
+                    required>
                 </div>
               </div>
 
               <div>
-                  <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-text-main dark:text-white" for="service">¿Qué necesitas?</label>
-                  <select
-                      id="service"
-                      name="service"
-                      class="input w-full"
-                      required>
-                      <option value="">Selecciona una opción</option>
-                      <option>E-commerce</option>
-                      <option>POS / Restaurante</option>
-                      <option>Plataforma de cursos</option>
-                      <option>Gestión de empleados</option>
-                      <option>Automatización e IA</option>
-                      <option>Otro (cuéntanos)</option>
-                  </select>
+                <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-text-main dark:text-white" for="service">¿Qué necesitas?</label>
+                <select
+                  id="service"
+                  name="service"
+                  class="input w-full"
+                  required>
+                  <option value="">Selecciona una opción</option>
+                  <option>E-commerce</option>
+                  <option>POS / Restaurante</option>
+                  <option>Plataforma de cursos</option>
+                  <option>Gestión de empleados</option>
+                  <option>Automatización e IA</option>
+                  <option>Otro (cuéntanos)</option>
+                </select>
               </div>
 
               <div>
-                  <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-text-main dark:text-white" for="message">Detalles del proyecto</label>
-                  <textarea
-                      id="message"
-                      name="message"
-                      rows="4"
-                      class="input w-full resize-none"
-                      placeholder="Cuéntanos sobre tu negocio o la idea que quieres desarrollar..."
-                      required></textarea>
+                <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-text-main dark:text-white" for="message">Detalles del proyecto</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  class="input w-full resize-none"
+                  placeholder="Cuéntanos sobre tu negocio o la idea que quieres desarrollar..."
+                  required></textarea>
               </div>
 
               <button
-                  type="submit"
-                  class="pageclip-form__submit btn-primary h-12 justify-center w-full mt-2 text-sm font-semibold">
-                  <span>Enviar mensaje por WhatsApp</span>
+                type="submit"
+                class="pageclip-form__submit btn-primary h-12 justify-center w-full mt-2 text-sm font-bold rounded-xl inline-flex items-center gap-2">
+                <span>Enviar mensaje por WhatsApp</span>
+                <span class="material-symbols-outlined text-base">send</span>
               </button>
             </form>
           </div>
+
         </div>
       </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-[#0b1220] border-t border-black/5 dark:border-white/10 pt-12 pb-8">
+    <footer class="bg-white/80 dark:bg-[#0A0527]/80 border-t border-black/5 dark:border-white/10 pt-12 pb-8 backdrop-blur-xl">
       <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row gap-6 md:items-center md:justify-between">
           <div class="flex items-center gap-2.5">
-            <span class="flex items-center justify-center size-8 rounded bg-primary text-white">
+            <span class="flex items-center justify-center size-8 rounded-lg bg-primary text-slate-900">
               <span class="material-symbols-outlined text-[18px]">terminal</span>
             </span>
             <div>
@@ -714,7 +670,7 @@
     <!-- WhatsApp Floating -->
     <a id="whatsappFloat"
       aria-label="Chat en WhatsApp"
-      class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-3.5 rounded-full shadow-lg transition-transform hover:scale-110 flex items-center justify-center"
+      class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-3.5 rounded-full shadow-2xl transition-transform hover:scale-110 flex items-center justify-center"
       href="https://wa.me/573006984927" target="_blank" rel="noopener noreferrer">
       <span class="material-symbols-outlined text-2xl">chat</span>
     </a>
@@ -731,17 +687,28 @@
   <script src="assets/js/config.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="https://s.pageclip.co/v1/pageclip.js"></script>
+  
+  <!-- Script React Bits Spotlight interactivo -->
   <script>
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
     const formulario = document.getElementById("leadForm");
-
     formulario.addEventListener("submit", function () {
-        setTimeout(() => {
-            const nombre = document.getElementById("nombre").value;
-            const email = document.getElementById("email").value;
-            const servicio = document.getElementById("service").value;
-            const mensaje = document.getElementById("message").value;
+      setTimeout(() => {
+        const nombre = document.getElementById("nombre").value;
+        const email = document.getElementById("email").value;
+        const servicio = document.getElementById("service").value;
+        const mensaje = document.getElementById("message").value;
 
-            const texto =
+        const texto =
 `Hola, soy ${nombre}.
 
 Correo: ${email}
@@ -752,13 +719,13 @@ ${servicio}
 Detalles:
 ${mensaje}`;
 
-            const numero = "573006984927"; 
+        const numero = "573006984927"; 
 
-            window.open(
-                `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`,
-                "_blank"
-            );
-        }, 1500);
+        window.open(
+          `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`,
+          "_blank"
+        );
+      }, 1500);
     });
   </script>
 </body>

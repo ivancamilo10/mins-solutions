@@ -1,15 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --primary: #00ABE4;
-  --primary-dark: #008dc0;
-  --secondary: #E9F1FA;
-  --accent: #00D1B2;
+  /* Paleta Extraída del Logo Oficial Mins Solutions TI SAS */
+  --mins-cyan: #50E2F0;
+  --mins-cyan-dark: #2BB8C7;
+  --mins-navy-dark: #0A0527;
+  --mins-navy-medium: #140C3E;
+  --mins-navy-light: #1E1452;
+  
   --text-main: #0F172A;
   --text-light: #64748B;
-  --glass-bg: rgba(255, 255, 255, 0.65);
-  --glass-border: rgba(255, 255, 255, 0.8);
-  --glass-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --glass-shadow: 0 20px 50px rgba(10, 5, 39, 0.08);
+
+  /* Tipografías */
+  --font-apple: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Plus Jakarta Sans', sans-serif;
+  --font-display-fun: 'Fredoka', 'Plus Jakarta Sans', cursive, sans-serif;
 }
 
 html {
@@ -17,26 +25,121 @@ html {
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background: #F8FAFC;
-  color: var(--text-main);
+  font-family: var(--font-apple);
+  background-color: #F6FAFD;
   background-image: 
-    radial-gradient(at 0% 0%, rgba(0, 171, 228, 0.12) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(0, 209, 178, 0.1) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, rgba(233, 241, 250, 0.5) 0px, transparent 100%);
+    radial-gradient(at 0% 0%, rgba(80, 226, 240, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(10, 5, 39, 0.06) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(240, 248, 255, 0.6) 0px, transparent 100%);
   background-attachment: fixed;
+  color: var(--text-main);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Tipografía de Títulos Divertida y Confiable */
+h1, h2, h3, .hero-title, .text-gradient-animated {
+  font-family: var(--font-display-fun);
+  letter-spacing: -0.01em;
+}
+
+/* Modo Oscuro Navy del Logo */
 .dark body {
-  background: #0B1220;
+  background-color: var(--mins-navy-dark);
   background-image: 
-    radial-gradient(at 0% 0%, rgba(0, 171, 228, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(11, 18, 32, 0.8) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(80, 226, 240, 0.15) 0px, transparent 45%),
+    radial-gradient(at 100% 100%, rgba(20, 12, 62, 0.8) 0px, transparent 50%);
   color: #F8FAFC;
 }
 
-/* Glassmorphism Classes */
+/* ==========================================================================
+   REACT BITS: SISTEMA DE TRANSICIONES Y ANIMACIONES AL HACER SCROLL (REVEAL)
+   ========================================================================== */
+
+/* Estado inicial común para los elementos reveal antes de activarse */
+.reveal {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Estado activo global */
+.reveal.active, .reveal.is-visible {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) rotate(0deg) !important;
+  filter: blur(0px) !important;
+}
+
+/* 1. SECCIÓN HERO: Blur Fade In + Expansion Scale */
+#inicio .reveal {
+  transform: scale(0.92);
+  filter: blur(12px);
+}
+
+/* 2. SECCIÓN IDENTIDAD: Slide Horizontal Contrapuesto */
+#identidad .reveal:first-child {
+  transform: translateX(-50px);
+  filter: blur(6px);
+}
+#identidad .reveal:last-child {
+  transform: translateX(50px);
+  filter: blur(6px);
+}
+
+/* 3. SECCIÓN VALOR: 3D Flip & Pop-up Escalonado */
+#valor .reveal {
+  transform: translateY(40px) rotateX(-15deg);
+  filter: blur(4px);
+}
+
+/* 4. SECCIÓN TECNOLOGÍAS: Perspective Skew & Slide Up */
+#tecnologias .reveal {
+  transform: translateY(50px) skewY(2deg);
+  filter: blur(5px);
+}
+
+/* 5. SECCIÓN SOLUCIONES: Expansion Glass (Efecto Lupa/Zoom-In) */
+#soluciones .reveal {
+  transform: scale(0.85);
+  filter: blur(10px);
+}
+
+/* 6. SECCIÓN PROCESO: Cascade Drop Down (Caída desde arriba) */
+#proceso .reveal {
+  transform: translateY(-40px);
+  filter: blur(6px);
+}
+
+/* 7. SECCIÓN PORTAFOLIO: Card Rotate Zoom & Glow Entrance */
+#portafolio .reveal {
+  transform: translateY(35px) scale(0.95);
+  filter: blur(4px);
+}
+
+/* 8. SECCIÓN PLANES: 3D Elevation Drop (Llegada con peso) */
+#planes .reveal {
+  transform: translateY(60px) scale(0.9);
+  filter: blur(8px);
+}
+
+/* 9. SECCIÓN CONTACTO: Soft Focus Blur Shift */
+#contacto .reveal {
+  transform: translateY(30px);
+  filter: blur(16px);
+}
+
+/* Stagger / Retardos progresivos para elementos en cuadrícula */
+.grid .reveal:nth-child(1) { transition-delay: 0.1s; }
+.grid .reveal:nth-child(2) { transition-delay: 0.2s; }
+.grid .reveal:nth-child(3) { transition-delay: 0.3s; }
+.grid .reveal:nth-child(4) { transition-delay: 0.4s; }
+
+/* ==========================================================================
+   ESTILOS GLASSMORPHISM CORPORATIVO
+   ========================================================================== */
+
 .glass-panel {
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
@@ -46,104 +149,389 @@ body {
 }
 
 .dark .glass-panel {
-  background: rgba(15, 23, 42, 0.65);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  background: rgba(20, 12, 62, 0.65);
+  border-color: rgba(80, 226, 240, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.75);
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(10, 5, 39, 0.04);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
 }
 
 .dark .glass-card {
-  background: rgba(30, 41, 59, 0.5);
-  border-color: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(30, 20, 82, 0.4);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* React Bits: Spotlight Card Effect */
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: var(--mouse-y, -100px);
+  left: var(--mouse-x, -100px);
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(80, 226, 240, 0.28) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
 }
 
 .glass-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 171, 228, 0.12);
-  border-color: rgba(0, 171, 228, 0.3);
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 20px 40px rgba(80, 226, 240, 0.22);
+  border-color: rgba(80, 226, 240, 0.5);
 }
 
-/* Botones con estilo Glass Glow */
+/* React Bits: Animated Gradient Text & Blur Fade */
+.text-gradient-animated {
+  background: linear-gradient(90deg, #0A0527 0%, #008dc0 50%, #50E2F0 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 6s linear infinite;
+}
+
+.dark .text-gradient-animated {
+  background: linear-gradient(90deg, #FFFFFF 0%, #50E2F0 50%, #2BB8C7 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Botones */
 .btn-primary {
-  background: linear-gradient(135deg, #00ABE4 0%, #008dc0 100%);
-  color: #FFFFFF;
-  box-shadow: 0 8px 20px rgba(0, 171, 228, 0.28);
+  font-family: var(--font-apple);
+  background: linear-gradient(135deg, #50E2F0 0%, #2BB8C7 100%);
+  color: #0A0527;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(80, 226, 240, 0.32);
   transition: all 0.25s ease;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 12px 28px rgba(0, 171, 228, 0.38);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(80, 226, 240, 0.45);
+  background: linear-gradient(135deg, #62E6F3 0%, #35C4D3 100%);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-apple);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  color: var(--text-main);
+  border: 1px solid rgba(10, 5, 39, 0.12);
+  color: var(--mins-navy-dark);
   transition: all 0.25s ease;
 }
 
 .btn-secondary:hover {
   background: #FFFFFF;
-  border-color: rgba(0, 171, 228, 0.3);
-  color: var(--primary);
+  border-color: var(--mins-cyan);
+  color: var(--mins-navy-dark);
   transform: translateY(-2px);
 }
 
 .dark .btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: #FFF;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
 }
 
-/* Form inputs Glass */
-.glass-input {
-  background: rgba(255, 255, 255, 0.8) !important;
+.dark .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--mins-cyan);
+}
+
+.btn-outline {
+  font-family: var(--font-apple);
+  border: 1px solid rgba(80, 226, 240, 0.4);
+  color: var(--mins-navy-dark);
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(15, 23, 42, 0.1) !important;
-  transition: all 0.2s ease !important;
+  transition: all 0.25s ease;
 }
 
-.glass-input:focus {
-  background: #FFFFFF !important;
-  border-color: var(--primary) !important;
-  box-shadow: 0 0 0 4px rgba(0, 171, 228, 0.15) !important;
+.dark .btn-outline {
+  color: var(--mins-cyan);
+  background: rgba(80, 226, 240, 0.05);
 }
 
-.dark .glass-input {
-  background: rgba(15, 23, 42, 0.6) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: #FFF !important;
+.btn-outline:hover {
+  background: var(--mins-cyan);
+  color: #0A0527;
+  transform: translateY(-2px);
 }
 
-/* Navlink Hover */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--mins-navy-dark);
+  border: 1px solid rgba(10, 5, 39, 0.08);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.dark .btn-ghost {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Entradas del Formulario */
+.input {
+  font-family: var(--font-apple);
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(10, 5, 39, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 0.85rem 1rem;
+  color: var(--mins-navy-dark);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  background: #FFFFFF;
+  border-color: var(--mins-cyan);
+  box-shadow: 0 0 0 4px rgba(80, 226, 240, 0.2);
+}
+
+.dark .input {
+  background: rgba(10, 5, 39, 0.6);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+}
+
+.dark .input:focus {
+  border-color: var(--mins-cyan);
+  box-shadow: 0 0 0 4px rgba(80, 226, 240, 0.25);
+}
+
+/* Enlaces de Navegación */
 .navlink {
+  font-family: var(--font-apple);
   position: relative;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--mins-navy-dark);
   transition: color 0.2s ease;
 }
 
+.dark .navlink {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.navlink:hover {
+  color: var(--mins-cyan-dark);
+}
+
+.dark .navlink:hover {
+  color: var(--mins-cyan);
+}
+
 .navlink::after {
-  content: '';
+  content: "";
   position: absolute;
-  bottom: -4px;
   left: 0;
+  bottom: -0.4rem;
   width: 0;
-  height: 2px;
-  background: var(--primary);
+  height: 2.5px;
+  background: var(--mins-cyan);
   transition: width 0.25s ease;
   border-radius: 2px;
 }
 
 .navlink:hover::after {
   width: 100%;
+}
+
+/* Pasos */
+.step-num {
+  font-family: var(--font-display-fun);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--mins-navy-medium), var(--mins-navy-dark));
+  color: var(--mins-cyan);
+  font-weight: 800;
+  border: 1px solid rgba(80, 226, 240, 0.2);
+}
+
+.step-num-outline {
+  background: transparent;
+  color: var(--mins-cyan-dark);
+  border: 1.5px solid var(--mins-cyan);
+}
+
+.dark .step-num-outline {
+  color: var(--mins-cyan);
+}
+
+.step-num-accent {
+  background: linear-gradient(135deg, var(--mins-cyan), var(--mins-cyan-dark));
+  color: var(--mins-navy-dark);
+}
+
+.step-badge {
+  font-family: var(--font-apple);
+  display: inline-flex;
+  margin-top: 1rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--mins-navy-dark);
+  background: rgba(80, 226, 240, 0.18);
+}
+
+.dark .step-badge {
+  color: var(--mins-cyan);
+  background: rgba(80, 226, 240, 0.12);
+}
+
+.step-badge-accent {
+  color: var(--mins-navy-dark);
+  background: var(--mins-cyan);
+}
+
+/* Portafolio */
+.portfolio-thumb {
+  height: 160px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(10, 5, 39, 0.05), rgba(80, 226, 240, 0.12));
+  color: var(--mins-cyan-dark);
+  font-size: 2.8rem;
+}
+
+.dark .portfolio-thumb {
+  background: linear-gradient(135deg, rgba(20, 12, 62, 0.8), rgba(80, 226, 240, 0.1));
+  color: var(--mins-cyan);
+}
+
+.portfolio-tag {
+  font-family: var(--font-apple);
+  display: inline-flex;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mins-cyan-dark);
+  margin-bottom: 0.5rem;
+}
+
+.dark .portfolio-tag {
+  color: var(--mins-cyan);
+}
+
+.filter-btn {
+  font-family: var(--font-apple);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(10, 5, 39, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--mins-navy-dark);
+  transition: all 0.2s ease;
+}
+
+.dark .filter-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.filter-btn:hover,
+.filter-btn.is-active {
+  background: var(--mins-navy-dark);
+  color: var(--mins-cyan);
+  border-color: var(--mins-navy-dark);
+}
+
+.dark .filter-btn:hover,
+.dark .filter-btn.is-active {
+  background: var(--mins-cyan);
+  color: var(--mins-navy-dark);
+  border-color: var(--mins-cyan);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+  color: var(--mins-navy-dark);
+  background: rgba(80, 226, 240, 0.2);
+}
+
+.dark .feature-icon {
+  color: var(--mins-cyan);
+  background: rgba(80, 226, 240, 0.12);
+}
+
+.plan-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.plan-list li {
+  font-family: var(--font-apple);
+  position: relative;
+  padding-left: 1.3rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.dark .plan-list li {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.plan-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--mins-cyan);
 }
