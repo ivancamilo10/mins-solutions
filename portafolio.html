@@ -12,7 +12,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script>
@@ -21,22 +21,22 @@
       theme: {
         extend: {
           colors: {
-            primary: "#00ABE4",
-            "primary-dark": "#008dc0",
+            primary: "#50E2F0",
+            "primary-dark": "#2BB8C7",
             secondary: "#E9F1FA",
-            accent: "#00D1B2",
-            "text-main": "#111439",
-            "text-light": "#5e818d",
+            accent: "#50E2F0",
+            "text-main": "#0F172A",
+            "text-light": "#64748B",
             "background-light": "#FFFFFF",
-            "background-alt": "#E9F1FA",
+            "background-alt": "#F8FAFC",
           },
           fontFamily: {
-            display: ["Inter", "sans-serif"],
-            body: ["Noto Sans", "sans-serif"],
+            display: ["Fredoka", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
           },
           boxShadow: {
-            soft: "0 4px 20px -2px rgba(17, 20, 57, 0.06)",
-            card: "0 2px 12px rgba(0, 0, 0, 0.05)",
+            soft: "0 20px 40px -15px rgba(10, 5, 39, 0.07)",
+            card: "0 4px 20px rgba(10, 5, 39, 0.04)",
           },
         },
       },
@@ -46,200 +46,42 @@
   <script type="application/ld+json" id="ld-json-business"></script>
 
   <style>
-    /* ── Base ── */
+    /* ── Estilos Locales del Portafolio integrados con Glassmorphism ── */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: "Inter", "Noto Sans", sans-serif;
-      background: #f8fafc;
-      color: #0f172a;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-    }
-    .dark body { background: #0f172a; color: #f8fafc; }
-
-    /* ── Navbar ── */
+    
     .navbar {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(0, 171, 228, 0.1);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(80, 226, 240, 0.2);
       transition: background 0.3s, border-color 0.3s;
     }
     .dark .navbar {
-      background: rgba(15, 23, 42, 0.8);
-      border-bottom-color: rgba(255, 255, 255, 0.05);
+      background: rgba(10, 5, 39, 0.8);
+      border-bottom-color: rgba(255, 255, 255, 0.1);
     }
 
-    /* ── Hero banner ── */
     .hero-banner {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      background: linear-gradient(135deg, #0A0527 0%, #140C3E 100%);
       position: relative; overflow: hidden;
     }
     .dark .hero-banner {
-      background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+      background: linear-gradient(135deg, #050215 0%, #0A0527 100%);
     }
     .hero-banner::before {
       content: "";
       position: absolute; inset: 0;
-      background: radial-gradient(circle at top right, rgba(0,171,228,0.15) 0%, transparent 50%),
-                  radial-gradient(circle at bottom left, rgba(0,209,178,0.1) 0%, transparent 50%);
-    }
-    .hero-banner::after {
-      content: "";
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background: radial-gradient(circle at top right, rgba(80,226,240,0.18) 0%, transparent 50%),
+                  radial-gradient(circle at bottom left, rgba(43,184,199,0.12) 0%, transparent 50%);
     }
 
-    /* ── Filter buttons ── */
-    .filter-btn {
-      padding: 0.5rem 1.25rem;
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      border: 1px solid transparent;
-      background: rgba(0, 171, 228, 0.05);
-      color: #475569;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-    }
-    .dark .filter-btn {
-      background: rgba(255, 255, 255, 0.03); 
-      color: #94a3b8; 
-    }
-    .filter-btn:hover { 
-      background: rgba(0, 171, 228, 0.1); 
-      color: #00ABE4; 
-    }
-    .filter-btn.is-active {
-      background: #0ea5e9; 
-      color: white; 
-      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
-    }
-
-    /* ── Project card ── */
-    .proj-card {
-      background: white;
-      border-radius: 1.25rem;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      overflow: hidden;
-      display: flex; flex-direction: column;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-      position: relative;
-    }
-    .proj-card::before {
-      content: "";
-      position: absolute; inset: 0;
-      border-radius: 1.25rem;
-      border: 2px solid transparent;
-      transition: border-color 0.4s ease;
-      pointer-events: none;
-      z-index: 10;
-    }
-    .dark .proj-card {
-      background: #1e293b; border-color: rgba(255, 255, 255, 0.05);
-    }
-    .proj-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    }
-    .proj-card:hover::before {
-      border-color: rgba(14, 165, 233, 0.3);
-    }
-    .dark .proj-card:hover {
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-    .proj-card.hidden { display: none; }
-
-    .proj-thumb {
-      height: 180px;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-    .proj-thumb .material-symbols-outlined {
-      font-size: 3.5rem;
-      position: relative; z-index: 1;
-      color: white;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
-      transition: transform 0.5s ease;
-    }
-    .proj-card:hover .proj-thumb .material-symbols-outlined {
-      transform: scale(1.1);
-    }
-    .proj-thumb::after {
-      content: "";
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 100%);
-      opacity: 0.8;
-    }
-
-    /* Gradientes por categoría (Premium feel) */
-    .thumb-ecommerce { background: linear-gradient(135deg, #0ea5e9, #2563eb); }
-    .thumb-pos       { background: linear-gradient(135deg, #f97316, #ea580c); }
-    .thumb-courses   { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
-    .thumb-hr        { background: linear-gradient(135deg, #10b981, #047857); }
-    .thumb-crm       { background: linear-gradient(135deg, #f59e0b, #d97706); }
-    .thumb-apps      { background: linear-gradient(135deg, #3b82f6, #4f46e5); }
-    .thumb-web       { background: linear-gradient(135deg, #06b6d4, #0369a1); }
-    .thumb-factura   { background: linear-gradient(135deg, #14b8a6, #0f766e); }
-
-    /* Tag de categoría */
-    .proj-tag {
-      display: inline-block;
-      font-size: 0.7rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.05em;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      margin-bottom: 0.5rem;
-    }
-
-    .tag-ecommerce, .tag-pos, .tag-courses, .tag-hr, .tag-crm, .tag-apps, .tag-web, .tag-factura {
-      background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0;
-    }
-    .dark .tag-ecommerce, .dark .tag-pos, .dark .tag-courses, .dark .tag-hr, .dark .tag-crm, .dark .tag-apps, .dark .tag-web, .dark .tag-factura {
-      background: rgba(255, 255, 255, 0.05); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* Badge de nivel */
-    .badge {
-      font-size: 0.7rem; font-weight: 600;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      display: inline-flex; align-items: center; gap: 0.25rem;
-    }
-    .badge-basico   { background: #f8fafc; color: #64748b; border: 1px solid #cbd5e1; }
-    .badge-avanzado { background: #f0f9ff; color: #0284c7; border: 1px solid #bae6fd; }
-    .badge-premium  { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
-    .dark .badge-basico   { background: #1e293b; color: #cbd5e1; border: 1px solid #475569; }
-    .dark .badge-avanzado { background: rgba(2, 132, 199, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
-    .dark .badge-premium  { background: rgba(180, 83, 9, 0.2); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.3); }
-
-    /* Features list */
-    .feature-item {
-      display: flex; align-items: flex-start; gap: 0.5rem;
-      font-size: 0.85rem; color: #475569; margin-bottom: 0.4rem; line-height: 1.4;
-    }
-    .dark .feature-item { color: #94a3b8; }
-    .feature-item .material-symbols-outlined {
-      font-size: 1.1rem; color: #10b981; flex-shrink: 0; margin-top: 0.1rem;
-    }
-
-    /* Price chip */
-    .price-chip {
-      background: linear-gradient(135deg, #0ea5e9, #2563eb);
-      color: white; border-radius: 1rem;
-      padding: 0.75rem 1rem; text-align: center;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
-    }
-    .dark .price-chip { background: linear-gradient(135deg, #0284c7, #1d4ed8); }
-
-    /* ── Modal overlay ── */
+    /* Modal Glassmorphism */
     .modal-overlay {
       position: fixed; inset: 0; z-index: 100;
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(8px);
+      background: rgba(10, 5, 39, 0.75);
+      backdrop-filter: blur(12px);
       display: flex; align-items: center; justify-content: center;
       padding: 1.5rem;
       opacity: 0; pointer-events: none;
@@ -247,178 +89,139 @@
     }
     .modal-overlay.open { opacity: 1; pointer-events: all; }
     .modal-box {
-      background: white; border-radius: 1.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(80, 226, 240, 0.3);
       width: 100%; max-width: 800px; max-height: 90vh;
       overflow-y: auto;
       transform: scale(0.95) translateY(20px);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
     }
-    .dark .modal-box { background: #0f172a; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); border: 1px solid rgba(255,255,255,0.1); }
+    .dark .modal-box { 
+      background: rgba(10, 5, 39, 0.95); 
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); 
+      border: 1px solid rgba(80, 226, 240, 0.2); 
+    }
     .modal-overlay.open .modal-box { transform: scale(1) translateY(0); }
 
-    /* ── Stats bar ── */
-    .stat-card {
-      background: rgba(255, 255, 255, 0.05); border-radius: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 1.5rem; text-align: center;
-      transition: transform 0.3s ease; backdrop-filter: blur(4px);
-    }
-    .stat-card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.08); }
-
-    /* ── Search ── */
+    /* Barra de Búsqueda Glass */
     .search-input {
       width: 100%; padding: 0.65rem 1rem 0.65rem 2.8rem;
-      border: 1px solid #cbd5e1;
+      border: 1px solid rgba(10, 5, 39, 0.12);
       border-radius: 9999px;
-      background: white; color: #0f172a;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      color: #0F172A;
       font-size: 0.95rem;
       outline: none; transition: all 0.3s ease;
     }
     .dark .search-input {
-      background: #1e293b; color: #f8fafc; border-color: rgba(255, 255, 255, 0.1);
+      background: rgba(10, 5, 39, 0.6); 
+      color: #F8FAFC; 
+      border-color: rgba(255, 255, 255, 0.12);
     }
-    .search-input:focus { border-color: #0ea5e9; box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15); }
-
-    /* ── View toggle ── */
-    .view-btn {
-      padding: 0.4rem 0.6rem; border-radius: 0.5rem;
-      border: 1px solid transparent; background: transparent;
-      cursor: pointer; display: flex; align-items: center;
-      transition: all 0.2s; color: #64748b;
+    .search-input:focus { 
+      border-color: #50E2F0; 
+      box-shadow: 0 0 0 4px rgba(80, 226, 240, 0.2); 
     }
-    .view-btn:hover { background: rgba(0,0,0,0.05); }
-    .dark .view-btn:hover { background: rgba(255,255,255,0.05); }
-    .view-btn.is-active { background: #0ea5e9; color: white; }
-    .view-btn.is-active .material-symbols-outlined { color: white; }
-    .view-btn .material-symbols-outlined { font-size: 1.1rem; }
 
-    /* ── List view ── */
+    /* Vista de Lista */
     .list-view .proj-card { flex-direction: row; height: auto; align-items: stretch; }
     .list-view .proj-card .proj-thumb { width: 220px; height: auto; flex-shrink: 0; }
-    .list-view .proj-card .proj-features,
-    .list-view .proj-card .proj-price-row { display: flex; }
     @media (max-width: 640px) {
       .list-view .proj-card { flex-direction: column; }
       .list-view .proj-card .proj-thumb { width: 100%; height: 180px; }
     }
 
-    /* ── Animations ── */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .proj-card { animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
-
-    /* ── Scroll to top ── */
+    /* Scroll to Top */
     #scrollTop {
       position: fixed; bottom: 2rem; right: 2rem; z-index: 60;
       width: 3rem; height: 3rem;
-      background: #0f172a; color: white;
-      border-radius: 9999px; border: none;
+      background: #0A0527; color: #50E2F0;
+      border-radius: 9999px; border: 1px solid rgba(80, 226, 240, 0.3);
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; opacity: 0; pointer-events: none;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
-    .dark #scrollTop { background: #0ea5e9; }
+    .dark #scrollTop { background: #50E2F0; color: #0A0527; }
     #scrollTop.visible { opacity: 1; pointer-events: auto; }
-    #scrollTop:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
+    #scrollTop:hover { transform: translateY(-4px); }
 
-    /* Empty state */
     #emptyState { display: none; }
   </style>
 </head>
 
-<body class="font-body">
+<body class="font-body antialiased dark:bg-[#0A0527] dark:text-white">
 
-<!-- ══════════════════════════════════════
-     NAVBAR
-══════════════════════════════════════ -->
 <nav class="navbar">
   <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-    <!-- Logo -->
-    <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
-      <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-        <span class="material-symbols-outlined text-white" style="font-size:1.1rem">code</span>
-      </div>
-      <span class="font-display font-700 text-text-main dark:text-white text-base leading-tight">
-        Mins Solutions <span class="text-primary">TI</span>
+    <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
+      <img src="/docs/img/logo.png" alt="Logo Mins Solutions TI" height="36" width="36" class="rounded-lg">
+      <span class="font-display text-base font-extrabold tracking-tight text-text-main dark:text-white">
+        Mins Solutions TI
       </span>
     </a>
 
-
-    <!-- Acciones -->
-    <div class="flex items-center gap-2">
-     
-      <a href="index.html#contacto" class="hidden sm:flex items-center gap-1 btn-primary text-sm h-9 px-4 rounded-full bg-primary text-white font-600 no-underline transition hover:bg-primary-dark"
-         style="background:#00ABE4;color:white;padding:.45rem 1.1rem;border-radius:9999px;font-weight:600;font-size:.875rem;text-decoration:none;transition:background .2s;">
+    <div class="flex items-center gap-3">
+      <a href="index.html#contacto" class="btn-primary h-9 px-5 text-sm font-bold inline-flex items-center rounded-full no-underline">
         Solicitar proyecto
       </a>
     </div>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════
-     HERO BANNER
-══════════════════════════════════════ -->
 <section class="hero-banner py-16 text-white text-center relative">
   <div class="max-w-[900px] mx-auto px-4 relative z-10">
-    <div class="inline-flex items-center gap-2 bg-white/15 rounded-full px-4 py-1.5 text-sm font-500 mb-5">
-      <span class="material-symbols-outlined" style="font-size:1rem">rocket_launch</span>
+    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider mb-5 border border-white/10">
+      <span class="material-symbols-outlined text-primary" style="font-size:1rem">rocket_launch</span>
       Portafolio Completo 2025–2026
     </div>
-    <h1 class="font-display text-4xl sm:text-5xl font-800 mb-4 leading-tight">
-      Soluciones de Software<br>
-      <span class="text-accent">a la medida</span>
+    <h1 class="font-display text-4xl sm:text-5xl font-extrabold mb-4 leading-tight">
+      Soluciones de Software <br>
+      <span class="text-gradient-animated">a la medida de tu empresa</span>
     </h1>
-    <p class="text-white/80 text-lg max-w-xl mx-auto mb-8">
-      Más de 25 productos desarrollados para impulsar negocios reales en Colombia y Latinoamérica.
+    <p class="text-white/80 text-base sm:text-lg max-w-xl mx-auto mb-8 font-medium">
+      Más de 25 desarrollos personalizados para impulsar la operación de negocios reales en Colombia y Latinoamérica.
     </p>
-    <!-- Stats inline -->
+    
     <div class="flex flex-wrap justify-center gap-6 text-center">
-      <div><p class="text-3xl font-800">25+</p><p class="text-white/70 text-sm">Soluciones</p></div>
+      <div><p class="font-display text-3xl font-extrabold text-primary">25+</p><p class="text-white/70 text-xs font-bold uppercase">Soluciones</p></div>
       <div class="w-px bg-white/20 self-stretch"></div>
-      <div><p class="text-3xl font-800">7</p><p class="text-white/70 text-sm">Categorías</p></div>
+      <div><p class="font-display text-3xl font-extrabold text-primary">7</p><p class="text-white/70 text-xs font-bold uppercase">Categorías</p></div>
       <div class="w-px bg-white/20 self-stretch"></div>
-      <div><p class="text-3xl font-800">100%</p><p class="text-white/70 text-sm">Escalables</p></div>
+      <div><p class="font-display text-3xl font-extrabold text-primary">100%</p><p class="text-white/70 text-xs font-bold uppercase">Escalables</p></div>
       <div class="w-px bg-white/20 self-stretch"></div>
-      <div><p class="text-3xl font-800">30d</p><p class="text-white/70 text-sm">Garantía post-lanzamiento</p></div>
+      <div><p class="font-display text-3xl font-extrabold text-primary">30d</p><p class="text-white/70 text-xs font-bold uppercase">Garantía QA</p></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     MAIN
-══════════════════════════════════════ -->
 <main class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
-  <!-- Barra de controles -->
   <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-    <!-- Search mobile -->
     <div class="relative sm:hidden">
       <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-light" style="font-size:1.1rem">search</span>
       <input id="searchInputMobile" type="search" placeholder="Buscar solución..." class="search-input" />
     </div>
 
-    <!-- Resultado count -->
-    <p class="text-sm text-text-light dark:text-white/50" id="resultCount">Mostrando <strong id="visibleCount">0</strong> soluciones</p>
+    <p class="text-sm font-semibold text-text-light dark:text-white/60" id="resultCount">Mostrando <strong id="visibleCount" class="text-primary-dark dark:text-primary">0</strong> soluciones</p>
 
-    <!-- View toggles -->
     <div class="flex items-center gap-2">
-      <span class="text-xs text-text-light dark:text-white/40 mr-1">Vista:</span>
-      <button class="view-btn is-active" id="viewGrid" title="Cuadrícula">
+      <span class="text-xs font-bold text-text-light dark:text-white/40 mr-1 uppercase">Vista:</span>
+      <button class="filter-btn is-active" id="viewGrid" title="Cuadrícula">
         <span class="material-symbols-outlined">grid_view</span>
       </button>
-      <button class="view-btn" id="viewList" title="Lista">
+      <button class="filter-btn" id="viewList" title="Lista">
         <span class="material-symbols-outlined">view_list</span>
       </button>
     </div>
   </div>
 
-  <!-- Filtros -->
   <div class="flex flex-wrap gap-2 mb-8" id="portfolioFilters">
-    <button class="filter-btn is-active" data-filter="all"       type="button">
+    <button class="filter-btn is-active" data-filter="all" type="button">
       <span class="material-symbols-outlined align-middle mr-1" style="font-size:.9rem">apps</span>Todos
     </button>
     <button class="filter-btn" data-filter="ecommerce" type="button">
@@ -444,59 +247,45 @@
     </button>
   </div>
 
-  <!-- Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
-    <!-- Cards generadas por JS -->
-  </div>
+    </div>
 
-  <!-- Empty state -->
   <div id="emptyState" class="text-center py-20">
     <span class="material-symbols-outlined text-6xl text-text-light/40">search_off</span>
-    <p class="text-text-light dark:text-white/40 mt-3 text-lg">No se encontraron soluciones</p>
-    <button onclick="resetFilters()" class="mt-4 text-primary underline text-sm">Limpiar filtros</button>
+    <p class="text-text-light dark:text-white/40 mt-3 text-lg font-semibold">No se encontraron soluciones que coincidan</p>
+    <button onclick="resetFilters()" class="mt-4 text-primary font-bold underline text-sm">Limpiar filtros</button>
   </div>
 
-  <!-- CTA Bottom -->
-  <div class="mt-16 rounded-2xl overflow-hidden" style="background:linear-gradient(135deg,#00ABE4 0%,#008dc0 60%,#00D1B2 100%)">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6 px-8 py-10 text-white">
+  <div class="mt-16 glass-panel rounded-3xl overflow-hidden border-2 border-primary/30">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 px-8 py-10">
       <div>
-        <h2 class="font-display text-2xl font-800 mb-2">¿No encuentras lo que necesitas?</h2>
-        <p class="text-white/80">Desarrollamos cualquier solución a tu medida. Contáctanos y cotiza sin compromiso.</p>
+        <h2 class="font-display text-2xl font-extrabold mb-2 text-text-main dark:text-white">¿Requieres un desarrollo específico?</h2>
+        <p class="text-text-light dark:text-white/70 text-sm">Diseñamos cualquier solución de software adaptada a tus flujos. Cotiza sin compromiso.</p>
       </div>
-      <a href="index.html#contacto"
-         style="background:white;color:#00ABE4;padding:.75rem 2rem;border-radius:9999px;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:transform .2s,box-shadow .2s;"
-         onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.2)'"
-         onmouseout="this.style.transform='';this.style.boxShadow=''">
-        Solicitar solución personalizada
+      <a href="index.html#contacto" class="btn-primary h-12 px-8 text-sm font-bold rounded-full inline-flex items-center justify-center whitespace-nowrap">
+        Solicitar solución a la medida
       </a>
     </div>
   </div>
 </main>
 
-<!-- ══════════════════════════════════════
-     MODAL DETALLE
-══════════════════════════════════════ -->
 <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-box" id="modalBox">
     <div id="modalContent"></div>
   </div>
 </div>
 
-<!-- Scroll to top -->
 <button id="scrollTop" title="Volver arriba">
   <span class="material-symbols-outlined" style="font-size:1.2rem">arrow_upward</span>
 </button>
 
-<!-- ══════════════════════════════════════
-     JAVASCRIPT
-══════════════════════════════════════ -->
 <script>
 // ─── Data ───────────────────────────────────────────────────────────────
 const projects = [
   {
     id: 1, category: "ecommerce", level: "basico",
-    icon: "shopping_cart", thumb: "thumb-ecommerce",
-    tag: "E-commerce", tagClass: "tag-ecommerce",
+    icon: "shopping_cart", thumb: "portfolio-thumb",
+    tag: "E-commerce", tagClass: "portfolio-tag",
     title: "E-commerce Serverless",
     short: "Tienda online ultrarápida (Edge) lista para vender mundial.",
     description: "Despliega una infraestructura robusta usando renderizado en el borde garantizando tiempos de carga muy veloces. Un catálogo administrable impulsado por CMS liviano (Sanity) y pasarelas como Stripe. Ideal para validar conversiones ágilmente de la forma más rápida del mercado hoy.",
@@ -509,8 +298,8 @@ const projects = [
   },
   {
     id: 2, category: "ecommerce", level: "avanzado",
-    icon: "storefront", thumb: "thumb-ecommerce",
-    tag: "E-commerce", tagClass: "tag-ecommerce",
+    icon: "storefront", thumb: "portfolio-thumb",
+    tag: "E-commerce", tagClass: "portfolio-tag",
     title: "E-commerce Chat-Commerce",
     short: "Compras sociales directas automatizadas con lógicas omnicanal.",
     description: "Tus usuarios interactúan en WhatsApp mientras un flujo unificado y sincronizado procesa pedidos y muestra inventario en tiempo real. Soporte para catálogos de Instagram y Facebook, combinando la velocidad pura con lógicas de 'compra conversacional'.",
@@ -523,11 +312,11 @@ const projects = [
   },
   {
     id: 3, category: "ecommerce", level: "premium",
-    icon: "auto_awesome", thumb: "thumb-ecommerce",
-    tag: "E-commerce", tagClass: "tag-ecommerce",
+    icon: "auto_awesome", thumb: "portfolio-thumb",
+    tag: "E-commerce", tagClass: "portfolio-tag",
     title: "E-commerce IA + Agentes",
     short: "Aumenta retención automatizando ventas con asistentes inteligentes.",
-    description: "Una plataforma que utiliza modelos de IA (LLMs) para actuar como vendedores en chat, respondiendo dudas de stock y recomendando productos personalizados. Análisis predictivo de demanda con consultoría estrátegica.",
+    description: "Una plataforma que utiliza modelos de IA (LLMs) para actuar como vendedores en chat, respondiendo dudas de stock y recomendando productos personalizados. Análisis predictivo de demanda con consultoría estratégica.",
     features: ["Chatbot vendedor 24/7 propio","Algoritmos recomendadores activos","Evaluación predictiva de compra","Campañas de retargeting IA","Consultoría estratégica negocio","Despliegue escalable en la nube"],
     tech: ["Next.js","Python (FastAPI)","OpenAI API","AWS"],
     price_cop: "5.500.000",
@@ -537,8 +326,8 @@ const projects = [
   },
   {
     id: 4, category: "pos", level: "basico",
-    icon: "receipt", thumb: "thumb-pos",
-    tag: "POS", tagClass: "tag-pos",
+    icon: "receipt", thumb: "portfolio-thumb",
+    tag: "POS", tagClass: "portfolio-tag",
     title: "POS PWA Offline-First",
     short: "Punto de venta moderno garantizado aún sin internet.",
     description: "Despliega un Sistema Web Progresivo que funciona offline. Cuando recupere señal, todo sincroniza a la nube. Diseño rápido y amigable para acelerar tus cobros físicos de caja diariamente.",
@@ -551,8 +340,8 @@ const projects = [
   },
   {
     id: 5, category: "pos", level: "avanzado",
-    icon: "point_of_sale", thumb: "thumb-pos",
-    tag: "POS", tagClass: "tag-pos",
+    icon: "point_of_sale", thumb: "portfolio-thumb",
+    tag: "POS", tagClass: "portfolio-tag",
     title: "POS Multisede Omnicanal",
     short: "Controla sucursales en bloque y rastrea envíos.",
     description: "Conecta todas tus tiendas a un nodo central. Traspasa inventarios y genera informes comparativos de ventas de caja directamente por local o consolidado.",
@@ -565,8 +354,8 @@ const projects = [
   },
   {
     id: 6, category: "pos", level: "premium",
-    icon: "restaurant", thumb: "thumb-pos",
-    tag: "POS", tagClass: "tag-pos",
+    icon: "restaurant", thumb: "portfolio-thumb",
+    tag: "POS", tagClass: "portfolio-tag",
     title: "Omni-POS Predictivo IA",
     short: "Sistemas RAG para abastecimiento impulsado por ventas predictivas.",
     description: "Para ecosistemas que unifican venta local y digital. Con algoritmos de tendencia estacional detectamos picos y abastecemos automáticamente tu red, cortando problemas de inventarios agotados y ahorrando compras.",
@@ -579,8 +368,8 @@ const projects = [
   },
   {
     id: 7, category: "courses", level: "basico",
-    icon: "menu_book", thumb: "thumb-courses",
-    tag: "LMS / Cursos", tagClass: "tag-courses",
+    icon: "menu_book", thumb: "portfolio-thumb",
+    tag: "LMS / Cursos", tagClass: "portfolio-tag",
     title: "LMS Serverless Video",
     short: "Experiencias de streaming con pasarelas puramente independientes.",
     description: "Olvídate de pagar suscripciones. Levanta una academia virtual que aloja videos por demanda, cobra en tus pasarelas locales o internacionales de stripe y da soporte a estudiantes sin recortes económicos en tus ganancias.",
@@ -593,8 +382,8 @@ const projects = [
   },
   {
     id: 8, category: "courses", level: "avanzado",
-    icon: "school", thumb: "thumb-courses",
-    tag: "LMS / Cursos", tagClass: "tag-courses",
+    icon: "school", thumb: "portfolio-thumb",
+    tag: "LMS / Cursos", tagClass: "portfolio-tag",
     title: "LMS Subtitulación OpenAI",
     short: "Accesibilidad mejorada IA y evaluaciones dinámicas.",
     description: "Un ecosistema colaborativo que retiene alumnos con funciones interactivas: tableros de puntajes (Gamificación), subtitulado de vídeos y traducciones empoderados por Whisper.",
@@ -607,8 +396,8 @@ const projects = [
   },
   {
     id: 9, category: "courses", level: "premium",
-    icon: "corporate_fare", thumb: "thumb-courses",
-    tag: "LMS / Cursos", tagClass: "tag-courses",
+    icon: "corporate_fare", thumb: "portfolio-thumb",
+    tag: "LMS / Cursos", tagClass: "portfolio-tag",
     title: "Enterprise LMS Tutor AI",
     short: "Asistentes educadores basados en el conocimiento de tus propios cursos.",
     description: "Transforma tu academia B2B o B2C con RAG. Empleados y estudiantes interactúan 24/7 con un Chatbot que domina y explica exactamente el temario cargado en los PDF o subtítulos, dando feedback inmediato y preciso a medida real.",
@@ -616,13 +405,13 @@ const projects = [
     tech: ["React","FastAPI","Pinecone", "SSO"],
     price_cop: "7.500.000",
     price_usd: "1.875",
-    special: "Acompanamiento virtual único de IA corporativa",
+    special: "Acompañamiento virtual único de IA corporativa",
     duration: "10–14 semanas"
   },
   {
     id: 10, category: "hr", level: "basico",
-    icon: "manage_accounts", thumb: "thumb-hr",
-    tag: "Empleados", tagClass: "tag-hr",
+    icon: "manage_accounts", thumb: "portfolio-thumb",
+    tag: "Empleados", tagClass: "portfolio-tag",
     title: "Control Autómata Horarios",
     short: "Sistema central en la web para rotación y horas unificadas.",
     description: "Soporte formal para controlar turnos libres de desorden. Coordinadores asignan calendarios, los colaboradores confirman su disposición y reciben recordatorios visuales que cortan distracciones organizativas drásticamente.",
@@ -635,8 +424,8 @@ const projects = [
   },
   {
     id: 11, category: "crm", level: "basico",
-    icon: "person_search", thumb: "thumb-crm",
-    tag: "CRM", tagClass: "tag-crm",
+    icon: "person_search", thumb: "portfolio-thumb",
+    tag: "CRM", tagClass: "portfolio-tag",
     title: "CRM Kanban Web 3.0",
     short: "Rutas conversacionales enfocadas a embudos veloces rápidos y claros.",
     description: "Herramienta ágil moderna sin suscripciones mensuales corporativas costosas. Importa clientes, diseña flujos logísticos fluidos de tipo Kanban, arrastra cotizaciones, fija notificaciones asíncronas para cierres y mide tasas de conversión exactas.",
@@ -649,11 +438,11 @@ const projects = [
   },
   {
     id: 12, category: "crm", level: "avanzado",
-    icon: "contacts", thumb: "thumb-crm",
-    tag: "CRM", tagClass: "tag-crm",
+    icon: "contacts", thumb: "portfolio-thumb",
+    tag: "CRM", tagClass: "portfolio-tag",
     title: "CRM Auto-LLM Tags",
     short: "WhatsApp califica mediante lógica conversacional tu embudo.",
-    description: "Avanza hacia la modernidad automatizando. La app receptora consume eventos de WhatsApp para etiquetar intenciones de compra con un LLM inicial pequeño (OpenAI). Cierra flujos tediosos ahorrando horas y centrando esfuerzos en lo altamente calificado.",
+    description: "Avanza hacia la modernidad automatizando. La app receptora consume eventos de WhatsApp para etiquetar intenciones de compra con un LLM inicial pequeño (OpenAI). Cierra flujos tediosos ahorrando horas y centrando esfuerzos en lo highly calificado.",
     features: ["Detección de emociones vía IA (Frío/Caliente)","Conexiones automáticas a flujos WhatsApp","Reportes cruzados con marketing directo","Borradores de correos IA automáticos","Notificación y enrutamiento hacia asesores","Alertas preventivas de enfriamiento"],
     tech: ["React Front","NestJS","OpenAI LLM","Meta API"],
     price_cop: "4.500.000",
@@ -663,8 +452,8 @@ const projects = [
   },
   {
     id: 13, category: "apps", level: "avanzado",
-    icon: "phone_iphone", thumb: "thumb-apps",
-    tag: "Apps Móvil", tagClass: "tag-apps",
+    icon: "phone_iphone", thumb: "portfolio-thumb",
+    tag: "Apps Móvil", tagClass: "portfolio-tag",
     title: "App React Native Express",
     short: "Ingresa de lleno a las grandes tiendas con despliegues optimizados.",
     description: "Escribe base transversal moderna emulando 100% nativo mediante código Expo o CLI. Aumenta fiabilidad de componentes y asegura interfaces 60FPS fluidas directas. Notificaciones asíncronas estables con lógicas offline fiables de gran soporte actual.",
@@ -677,8 +466,8 @@ const projects = [
   },
   {
     id: 14, category: "apps", level: "avanzado",
-    icon: "android", thumb: "thumb-apps",
-    tag: "Apps Móvil", tagClass: "tag-apps",
+    icon: "android", thumb: "portfolio-thumb",
+    tag: "Apps Móvil", tagClass: "portfolio-tag",
     title: "App Cross Multi-Pantallas",
     short: "Soporte híbrido e interfaces puristas transversales completas y amables.",
     description: "Si necesitas abarcar todas las dimensiones sin doblegear desarrollos (Tablets, Celulares), el alcance multi-pantalla optimizado de React-Native permite escalados limpios unificados. El balance perfecto de presupuesto de innovación empresarial logrando presencia seria nativa.",
@@ -691,8 +480,8 @@ const projects = [
   },
   {
     id: 15, category: "apps", level: "premium",
-    icon: "devices", thumb: "thumb-apps",
-    tag: "Apps Móvil", tagClass: "tag-apps",
+    icon: "devices", thumb: "portfolio-thumb",
+    tag: "Apps Móvil", tagClass: "portfolio-tag",
     title: "Apps Elite On-Device AI",
     short: "Procesado neuronal integrado profundo, seguro, off-the-cloud.",
     description: "El borde de la modernidad móvil es pre-calcular localmente (NPU del teléfono) permitiendo funciones ultra rápidas sin coste API excesivo, tales como edición visual en vivo de imágenes o lecturas complejas OCR/biométrica inmediatas fluidas de validación. Increíble retención final.",
@@ -705,8 +494,8 @@ const projects = [
   },
   {
     id: 16, category: "web", level: "avanzado",
-    icon: "bar_chart", thumb: "thumb-web",
-    tag: "Web & Análisis", tagClass: "tag-web",
+    icon: "bar_chart", thumb: "portfolio-thumb",
+    tag: "Web & Análisis", tagClass: "portfolio-tag",
     title: "Dashboards Text-to-SQL IA",
     short: "Gráficas exactas autogeneradas con búsquedas normales empresariales.",
     description: "Moderniza tu analítica con Text-to-SQL. En lugar de limitarte a paneles rígidos, proveo un campo inteligente donde tipeando 'mostrar ventas de marzo' el sistema consulta una DB SQL mediante IA, graficando reportes asombrosos en Chart.js / Tremor. Precisión a nivel de gerencia general.",
@@ -719,22 +508,22 @@ const projects = [
   },
   {
     id: 17, category: "web", level: "avanzado",
-    icon: "receipt_long", thumb: "thumb-factura",
-    tag: "Web & Análisis", tagClass: "tag-web",
-    title: "Microservicios Facturación (DIAN)",
-    short: "Emisiones transparentes con API robusta validada nacional.",
-    description: "Despliegues ágiles garantizando cumplimientos rigurosos normativos de facturación frente a autoridades (como DIAN en Colombia). Evitas errores catastróficos implementando microservicios Serverless que reintentan entregas fallidas y firman localmente documentos PDF.",
-    features: ["Generación certificada de XML y PDFs institucionales estables","Enrutador automático reintentador ante caídas externas lógicas","Panel observador consolidado para el área de control fiduciario","Firma delegada nativa robusta criptográfica de las constancias","Emisión vía mail automática e inmediata segura hacia clientes","Escalabilidad garantizada transaccional de uso concurrente diario"],
-    tech: ["Node.js Serverless","MySQL", "Redis"],
+    icon: "receipt_long", thumb: "portfolio-thumb",
+    tag: "Web & Análisis", tagClass: "portfolio-tag",
+    title: "Integración de Facturación Electrónica",
+    short: "Conexión transparente mediante API con tu Proveedor Tecnológico.",
+    description: "Desarrollamos e integramos puentes y Webhooks entre tu software (E-commerce, POS o ERP) y la API de tu Proveedor Tecnológico Autorizado (PTA). Automatiza la sincronización de facturas, consultas de estado y generación de reportes sin intervención manual.",
+    features: ["Integración vía API con proveedores tecnológicos autorizados","Envío y respuesta automática de comprobantes de venta","Mapeo de datos para generación de JSON/XML según requerimiento PTA","Panel de monitoreo de eventos y reintentos ante caídas","Sincronización con el inventario y módulo contable interno","Registro de trazabilidad y notificaciones por correo"],
+    tech: ["Node.js Serverless","REST APIs / Webhooks","MySQL / PostgreSQL"],
     price_cop: "2.200.000",
     price_usd: "550",
-    special: "Seguridad y fluidez en reportes contables oficiales al instante",
+    special: "Interconexión limpia sin fricción entre tu software y tu PTA",
     duration: "3–5 semanas"
   },
   {
     id: 18, category: "web", level: "basico",
-    icon: "calendar_month", thumb: "thumb-web",
-    tag: "Web & Análisis", tagClass: "tag-web",
+    icon: "calendar_month", thumb: "portfolio-thumb",
+    tag: "Web & Análisis", tagClass: "portfolio-tag",
     title: "Plataformas de Reserva Optimizadas",
     short: "Sistemas distribuidos en Edge puramente autogestionables para clientes.",
     description: "Agencias y servicios optimizan recursos cuando delegan el agendamiento a una UI clara. Flujos de calendarios interactivos que bloquean espacios en tiempo real asíncrono y gestionan alertas de SMS automáticas garantizando que los olvidos y baches decaigan unificadamente.",
@@ -747,8 +536,8 @@ const projects = [
   },
   {
     id: 19, category: "web", level: "basico",
-    icon: "chat", thumb: "thumb-web",
-    tag: "Web & Análisis", tagClass: "tag-web",
+    icon: "chat", thumb: "portfolio-thumb",
+    tag: "Web & Análisis", tagClass: "portfolio-tag",
     title: "Panel P2P WebSockets Live",
     short: "Central de alertas y foros unificada empresarial sin redes cerradas mixtas.",
     description: "Desarrollo un servidor con WebSockets (Socket.io) para mensajería interna, transmisiones en vivo o paneles de control que no admiten desfaces entre actualizados (Ej. salas interactivas o juegos en vivo formativos). Aísle los usos personales (WhatsApp) de los corporativos.",
@@ -761,8 +550,8 @@ const projects = [
   },
   {
     id: 20, category: "web", level: "basico",
-    icon: "language", thumb: "thumb-web",
-    tag: "Web & Análisis", tagClass: "tag-web",
+    icon: "language", thumb: "portfolio-thumb",
+    tag: "Web & Análisis", tagClass: "portfolio-tag",
     title: "Vitrina Corporativa Headless & 3D",
     short: "Modelos 3D y despliegues renderizados de marketing innovador sólido.",
     description: "Pasa de un website tradicional a una experiencia. Se implementan modelados interactivos base en WebGL/Three.js y renderizado desde el borde (Next.js) para que tu marca destaque enormemente mientras carga en poquísimos milisegundos elevando rankings frente a Google.",
@@ -775,8 +564,8 @@ const projects = [
   },
   {
     id: 21, category: "web", level: "avanzado",
-    icon: "article", thumb: "thumb-web",
-    tag: "Web & Análisis", tagClass: "tag-web",
+    icon: "article", thumb: "portfolio-thumb",
+    tag: "Web & Análisis", tagClass: "portfolio-tag",
     title: "CMS Analítico API First",
     short: "Autogestione redes documentales puras desacopladas fluidas dinámicas claras",
     description: "Una editorial inteligente. Construyo el núcleo usando CMS Headless (Sanity o Strapi) permitiendo que cambies imágenes, textos o productos y este impacto se distribuya a tu web, tu app o tu POS simultáneamente. Centralizas el dato, diversificas su distribución fluida y continua.",
@@ -789,8 +578,8 @@ const projects = [
   },
   {
     id: 22, category: "web", level: "avanzado",
-    icon: "api", thumb: "thumb-web",
-    tag: "Web & Análisis", tagClass: "tag-web",
+    icon: "api", thumb: "portfolio-thumb",
+    tag: "Web & Análisis", tagClass: "portfolio-tag",
     title: "Webhooks e Integraciones Endpoint",
     short: "Unifique ERPs y CRMs centralmente rompiendo puentes rotos repetitivos",
     description: "Actúo como un hub orquestador. Tu almacén se debe actualizar si Shopify/Vtex procesa una compra en segundos para no caer. Desarrollo puentes Serverless ágiles fluidos para interconectar lógicas propias, rompiendo dependencias altas de Zapier en tu arquitectura fluida.",
@@ -803,8 +592,8 @@ const projects = [
   },
   {
     id: 23, category: "web", level: "avanzado",
-    icon: "hub", thumb: "thumb-web",
-    tag: "Web & Análisis", tagClass: "tag-web",
+    icon: "hub", thumb: "portfolio-thumb",
+    tag: "Web & Análisis", tagClass: "portfolio-tag",
     title: "Cloud Video & CDN Multimedia",
     short: "Plataformas de streaming o galerías nativas fluidas sobre infraestructuras potentes",
     description: "Portales de nivel global que distribuyen videos, galerías fotográficas corporativas o retransmisiones puras mediante integraciones al Edge. Soportado en CDNs para que el retraso en carga desde cualquier parte sea imperceptible unificadamente fluidos.",
@@ -816,54 +605,48 @@ const projects = [
     duration: "5–6 semanas"
   }
 ];
+
 // ─── State ─────────────────────────────────────────────────────────────
 let activeFilter = "all";
 let searchTerm   = "";
-let viewMode     = "grid"; // "grid" | "list"
+let viewMode     = "grid";
 
-// ─── Render cards ──────────────────────────────────────────────────────
+// ─── Render cards Glassmorphism ─────────────────────────────────────────
 function levelLabel(level) {
   const map = { basico: "Básico", avanzado: "Avanzado", premium: "Premium" };
   return map[level] || level;
 }
 
 function renderCard(p) {
-  const delay = (p.id % 6) * 50;
   return `
-    <article class="proj-card" data-id="${p.id}" data-category="${p.category}"
-             style="animation-delay:${delay}ms"
-             tabindex="0" role="button" aria-label="Ver detalle de ${p.title}">
-      <div class="proj-thumb ${p.thumb}">
-        <span class="material-symbols-outlined">${p.icon}</span>
-      </div>
-      <div class="p-5 flex flex-col flex-1">
+    <article class="glass-card p-5 rounded-2xl reveal flex flex-col justify-between" data-id="${p.id}" data-category="${p.category}" tabindex="0" role="button" aria-label="Ver detalle de ${p.title}">
+      <div>
+        <div class="portfolio-thumb mb-4"><span class="material-symbols-outlined">${p.icon}</span></div>
         <div class="flex items-center justify-between mb-2">
-          <span class="proj-tag ${p.tagClass}">${p.tag}</span>
-          <span class="badge badge-${p.level}">${levelLabel(p.level)}</span>
+          <span class="portfolio-tag">${p.tag}</span>
+          <span class="step-badge">${levelLabel(p.level)}</span>
         </div>
-        <h3 class="font-display font-700 text-text-main dark:text-white text-base mb-1 leading-snug">${p.title}</h3>
-        <p class="text-sm text-text-light dark:text-white/60 mb-3 flex-1">${p.short}</p>
+        <h3 class="font-display font-bold text-text-main dark:text-white text-lg mb-1 leading-snug">${p.title}</h3>
+        <p class="text-xs text-text-light dark:text-white/70 mb-4 leading-relaxed">${p.short}</p>
 
-        <ul class="proj-features mb-4 space-y-1">
+        <ul class="space-y-1.5 mb-4">
           ${p.features.slice(0,3).map(f => `
-            <li class="feature-item">
-              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">check_circle</span>
+            <li class="flex items-center gap-2 text-xs text-text-light dark:text-white/80">
+              <span class="material-symbols-outlined text-primary text-base">check_circle</span>
               <span>${f}</span>
             </li>`).join("")}
         </ul>
+      </div>
 
-        <div class="proj-price-row flex items-center justify-between pt-3 border-t border-gray-100 dark:border-white/10">
-          <div>
-            <p class="text-xs text-text-light dark:text-white/40">Desde</p>
-            <p class="font-display font-700 text-primary text-lg">$${p.price_cop}</p>
-            <p class="text-xs text-text-light dark:text-white/40">COP / USD $${p.price_usd}</p>
-          </div>
-          <button class="flex items-center gap-1 text-sm text-primary font-600 hover:underline"
-                  onclick="openModal(${p.id}); event.stopPropagation();">
-            Ver más
-            <span class="material-symbols-outlined" style="font-size:.95rem">arrow_forward</span>
-          </button>
+      <div class="pt-3 border-t border-black/5 dark:border-white/10 flex items-center justify-between mt-auto">
+        <div>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-text-light dark:text-white/40">Desde</p>
+          <p class="font-display font-extrabold text-primary-dark dark:text-primary text-base">$${p.price_cop} COP</p>
         </div>
+        <button class="btn-outline h-8 px-3 rounded-full text-xs font-bold inline-flex items-center gap-1" onclick="openModal(${p.id}); event.stopPropagation();">
+          Ver detalle
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>
       </div>
     </article>
   `;
@@ -880,21 +663,27 @@ function applyFilters() {
     return matchCat && matchText;
   });
 
-  grid.innerHTML = filtered.length
-    ? filtered.map(renderCard).join("")
-    : "";
+  grid.innerHTML = filtered.length ? filtered.map(renderCard).join("") : "";
 
   document.getElementById("emptyState").style.display = filtered.length ? "none" : "block";
   document.getElementById("visibleCount").textContent  = filtered.length;
 
-  // Re-attach click events
-  grid.querySelectorAll(".proj-card").forEach(card => {
+  // React Bits: Spotlight Card Effect
+  grid.querySelectorAll('.glass-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+      card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+    });
+    
     const id = +card.dataset.id;
-    card.addEventListener("click",  () => openModal(id));
+    card.addEventListener("click",   () => openModal(id));
     card.addEventListener("keydown", e => { if (e.key === "Enter") openModal(id); });
+    
+    // Activar animación inmediatamente tras renderizar
+    setTimeout(() => card.classList.add("is-visible"), 50);
   });
 
-  // List/Grid view
   if (viewMode === "list") {
     grid.classList.remove("grid-cols-1","sm:grid-cols-2","lg:grid-cols-3");
     grid.classList.add("grid-cols-1","list-view");
@@ -907,8 +696,8 @@ function applyFilters() {
 function resetFilters() {
   activeFilter = "all";
   searchTerm   = "";
-  document.getElementById("searchInput").value = "";
-  document.getElementById("searchInputMobile").value = "";
+  const sInput = document.getElementById("searchInputMobile");
+  if(sInput) sInput.value = "";
   document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("is-active"));
   document.querySelector("[data-filter=all]").classList.add("is-active");
   applyFilters();
@@ -920,70 +709,64 @@ function openModal(id) {
   if (!p) return;
   const modal = document.getElementById("modalOverlay");
   document.getElementById("modalContent").innerHTML = `
-    <div class="proj-thumb ${p.thumb} rounded-t-2xl" style="height:180px">
-      <span class="material-symbols-outlined" style="font-size:4rem;color:white">${p.icon}</span>
+    <div class="portfolio-thumb rounded-t-2xl" style="height:180px">
+      <span class="material-symbols-outlined" style="font-size:4rem">${p.icon}</span>
     </div>
     <div class="p-6 sm:p-8">
       <div class="flex flex-wrap items-center gap-2 mb-3">
-        <span class="proj-tag ${p.tagClass}">${p.tag}</span>
-        <span class="badge badge-${p.level}">${levelLabel(p.level)}</span>
-        <span class="ml-auto text-xs text-text-light dark:text-white/40 flex items-center gap-1">
-          <span class="material-symbols-outlined" style="font-size:.9rem">schedule</span>
+        <span class="portfolio-tag">${p.tag}</span>
+        <span class="step-badge">${levelLabel(p.level)}</span>
+        <span class="ml-auto text-xs font-bold text-text-light dark:text-white/60 flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">schedule</span>
           ${p.duration}
         </span>
       </div>
-      <h2 id="modalTitle" class="font-display text-2xl font-800 text-text-main dark:text-white mb-2">${p.title}</h2>
-      <p class="text-text-light dark:text-white/70 mb-6 leading-relaxed">${p.description}</p>
+      <h2 id="modalTitle" class="font-display text-2xl sm:text-3xl font-extrabold text-text-main dark:text-white mb-3">${p.title}</h2>
+      <p class="text-text-light dark:text-white/70 text-sm mb-6 leading-relaxed">${p.description}</p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
         <div>
-          <h4 class="font-display font-700 text-text-main dark:text-white text-sm mb-3 uppercase tracking-wide">
-            <span class="material-symbols-outlined align-middle mr-1 text-primary" style="font-size:1rem">checklist</span>
+          <h4 class="font-bold text-text-main dark:text-white text-xs uppercase tracking-wider mb-3 flex items-center gap-1">
+            <span class="material-symbols-outlined text-primary text-base">checklist</span>
             Características incluidas
           </h4>
           <ul class="space-y-2">
             ${p.features.map(f => `
-              <li class="feature-item">
-                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">check_circle</span>
+              <li class="flex items-start gap-2 text-xs text-text-light dark:text-white/80">
+                <span class="material-symbols-outlined text-primary text-base flex-shrink-0">check_circle</span>
                 <span>${f}</span>
               </li>`).join("")}
           </ul>
         </div>
         <div>
-          <h4 class="font-display font-700 text-text-main dark:text-white text-sm mb-3 uppercase tracking-wide">
-            <span class="material-symbols-outlined align-middle mr-1 text-primary" style="font-size:1rem">code_blocks</span>
+          <h4 class="font-bold text-text-main dark:text-white text-xs uppercase tracking-wider mb-3 flex items-center gap-1">
+            <span class="material-symbols-outlined text-primary text-base">code_blocks</span>
             Stack tecnológico
           </h4>
           <div class="flex flex-wrap gap-2 mb-5">
-            ${p.tech.map(t => `<span class="text-xs font-600 px-2.5 py-1 rounded-full bg-secondary dark:bg-white/10 text-text-main dark:text-white">${t}</span>`).join("")}
+            ${p.tech.map(t => `<span class="text-xs font-bold px-3 py-1 rounded-full glass-panel text-text-main dark:text-white">${t}</span>`).join("")}
           </div>
 
-          <h4 class="font-display font-700 text-text-main dark:text-white text-sm mb-2 uppercase tracking-wide">
-            <span class="material-symbols-outlined align-middle mr-1 text-accent" style="font-size:1rem">star</span>
-            Beneficio especial
+          <h4 class="font-bold text-text-main dark:text-white text-xs uppercase tracking-wider mb-2 flex items-center gap-1">
+            <span class="material-symbols-outlined text-primary text-base">star</span>
+            Diferencial Clave
           </h4>
-          <p class="text-sm text-accent font-600 bg-teal-50 dark:bg-teal-900/30 rounded-lg px-3 py-2">${p.special}</p>
+          <p class="text-xs font-bold text-primary-dark dark:text-primary bg-primary/10 rounded-xl p-3 border border-primary/20">${p.special}</p>
         </div>
       </div>
 
-      <div class="price-chip mb-6">
-        <p class="text-white/80 text-xs mb-0.5">Precio desde</p>
-        <p class="font-display font-800 text-2xl">$${p.price_cop} COP</p>
-        <p class="text-white/80 text-sm">≈ USD $${p.price_usd}</p>
+      <div class="glass-panel p-4 rounded-2xl text-center mb-6 border border-primary/30">
+        <p class="text-text-light dark:text-white/60 text-xs font-bold uppercase tracking-wider">Inversión Estimada</p>
+        <p class="font-display font-extrabold text-2xl sm:text-3xl text-text-main dark:text-white mt-1">$${p.price_cop} COP</p>
+        <p class="text-xs font-bold text-text-light dark:text-white/60 mt-0.5">≈ USD $${p.price_usd}</p>
       </div>
 
       <div class="flex flex-col sm:flex-row gap-3">
-        <a href="index.html#contacto"
-           style="flex:1;background:#00ABE4;color:white;text-align:center;padding:.75rem 1.5rem;border-radius:9999px;font-weight:700;text-decoration:none;transition:background .2s;"
-           onmouseover="this.style.background='#008dc0'"
-           onmouseout="this.style.background='#00ABE4'">
-          <span class="material-symbols-outlined align-middle mr-1" style="font-size:1rem">send</span>
+        <a href="index.html#contacto" class="btn-primary h-12 flex-1 rounded-full font-bold text-sm flex items-center justify-center gap-2 no-underline">
+          <span class="material-symbols-outlined text-base">send</span>
           Solicitar este proyecto
         </a>
-        <button onclick="closeModal()"
-          style="flex:1;border:2px solid #d1e9f5;background:transparent;color:#5e818d;padding:.75rem 1.5rem;border-radius:9999px;font-weight:600;cursor:pointer;transition:all .2s;"
-          onmouseover="this.style.borderColor='#00ABE4';this.style.color='#00ABE4'"
-          onmouseout="this.style.borderColor='#d1e9f5';this.style.color='#5e818d'">
+        <button onclick="closeModal()" class="btn-secondary h-12 flex-1 rounded-full font-bold text-sm flex items-center justify-center">
           Cerrar
         </button>
       </div>
@@ -1013,8 +796,8 @@ function handleSearch(val) {
   applyFilters();
 }
 
-document.getElementById("searchInput").addEventListener("input", e => handleSearch(e.target.value));
-document.getElementById("searchInputMobile").addEventListener("input", e => handleSearch(e.target.value));
+const mobSearch = document.getElementById("searchInputMobile");
+if(mobSearch) mobSearch.addEventListener("input", e => handleSearch(e.target.value));
 
 document.getElementById("viewGrid").addEventListener("click", () => {
   viewMode = "grid";
@@ -1029,21 +812,11 @@ document.getElementById("viewList").addEventListener("click", () => {
   applyFilters();
 });
 
-// Close modal on overlay click or Escape
 document.getElementById("modalOverlay").addEventListener("click", e => {
   if (e.target === document.getElementById("modalOverlay")) closeModal();
 });
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
 
-// Theme toggle
-const themeToggle = document.getElementById("themeToggle");
-const themeIcon   = document.getElementById("themeIcon");
-themeToggle.addEventListener("click", () => {
-  document.documentElement.classList.toggle("dark");
-  themeIcon.textContent = document.documentElement.classList.contains("dark") ? "light_mode" : "dark_mode";
-});
-
-// Scroll to top
 const scrollTopBtn = document.getElementById("scrollTop");
 window.addEventListener("scroll", () => {
   scrollTopBtn.classList.toggle("visible", window.scrollY > 400);
